@@ -1,0 +1,154 @@
+{
+    "custom_nodes": [
+        {
+            "author": "mariobilly",
+            "title": "MSCH A2V",
+            "reference": "https://github.com/mariobilly/msch-a2v",
+            "files": [
+                "https://github.com/mariobilly/msch-a2v"
+            ],
+            "install_type": "git-clone",
+            "description": "Beat-synced prompt sequencing, shot planning, MiniMax H3 sampling, assembly and pixel upscaling for music videos."
+        },
+        {
+            "author": "mariobilly",
+            "title": "MSCH Code Matrix",
+            "reference": "https://github.com/mariobilly/msch-code-matrix",
+            "files": [
+                "https://github.com/mariobilly/msch-code-matrix"
+            ],
+            "install_type": "git-clone",
+            "description": "Convert images and video frames into ASCII portraits, binary art and animated Matrix-style glyph patterns."
+        },
+        {
+            "author": "mariobilly",
+            "title": "MSCH Edge ASCII",
+            "reference": "https://github.com/mariobilly/msch-edge-ascii",
+            "files": [
+                "https://github.com/mariobilly/msch-edge-ascii"
+            ],
+            "install_type": "git-clone",
+            "description": "Contour-aligned ASCII strokes, halftone fills and animated marks for photos and native ComfyUI video."
+        },
+        {
+            "author": "mariobilly",
+            "title": "MSCH Lyric Sync",
+            "reference": "https://github.com/mariobilly/msch-lyric-sync",
+            "files": [
+                "https://github.com/mariobilly/msch-lyric-sync"
+            ],
+            "install_type": "git-clone",
+            "description": "Align pasted lyrics to audio and render bilingual captions or animated lyric mosaics with editable color palettes."
+        },
+        {
+            "author": "mariobilly",
+            "title": "MSCH MCP Bridge",
+            "reference": "https://github.com/mariobilly/msch-mcp-bridge",
+            "files": [
+                "https://github.com/mariobilly/msch-mcp-bridge"
+            ],
+            "install_type": "git-clone",
+            "description": "Local ComfyUI browser bridge for changing widget values, setting node modes and reading the current graph."
+        },
+        {
+            "author": "mariobilly",
+            "title": "MSCH Pointillism",
+            "reference": "https://github.com/mariobilly/msch-pointillism",
+            "files": [
+                "https://github.com/mariobilly/msch-pointillism"
+            ],
+            "install_type": "git-clone",
+            "description": "Animate color-sampled dots over paper with distortion, ink bleed, grain and frame-hold controls."
+        },
+        {
+            "author": "mariobilly",
+            "title": "MSCH Puppet Face",
+            "reference": "https://github.com/mariobilly/msch-puppet-face",
+            "files": [
+                "https://github.com/mariobilly/msch-puppet-face"
+            ],
+            "install_type": "git-clone",
+            "description": "Face landmark and animated cursor overlays with self-contained OpenCV video loading and MP4 saving."
+        },
+        {
+            "author": "mariobilly",
+            "title": "MSCH Scan FX",
+            "reference": "https://github.com/mariobilly/msch-scanfx",
+            "files": [
+                "https://github.com/mariobilly/msch-scanfx"
+            ],
+            "install_type": "git-clone",
+            "description": "Stack up to eight thermal, night-vision, hologram, HUD, radar, glitch and other scan effects inside an optional mask."
+        },
+        {
+            "author": "mariobilly",
+            "title": "MSCH Slideshow",
+            "reference": "https://github.com/mariobilly/msch-slideshow",
+            "files": [
+                "https://github.com/mariobilly/msch-slideshow"
+            ],
+            "install_type": "git-clone",
+            "description": "Photo slideshow studio with animated layouts, beat analysis, subject framing, editable shot plans and streamed video export."
+        },
+        {
+            "author": "mariobilly",
+            "title": "MSCH Slideshow Forge",
+            "reference": "https://github.com/mariobilly/msch-slideshow-forge",
+            "files": [
+                "https://github.com/mariobilly/msch-slideshow-forge"
+            ],
+            "install_type": "git-clone",
+            "description": "Build editable photo timelines and render procedural Ken Burns motion and transitions using PyTorch and Kornia."
+        },
+        {
+            "author": "mariobilly",
+            "title": "MSCH Synkit FX",
+            "reference": "https://github.com/mariobilly/msch-synkitfx",
+            "files": [
+                "https://github.com/mariobilly/msch-synkitfx"
+            ],
+            "install_type": "git-clone",
+            "description": "Animated metaball halftones and feature-tracking HUD boxes with labels, connectors, native VIDEO and overlay masks."
+        },
+        {
+            "author": "mariobilly",
+            "title": "MSCH Theme",
+            "reference": "https://github.com/mariobilly/msch-theme",
+            "files": [
+                "https://github.com/mariobilly/msch-theme"
+            ],
+            "install_type": "git-clone",
+            "description": "Apply the MSCH carbon, steel, bone and acid-accent palette to compatible custom node cards."
+        },
+        {
+            "author": "mariobilly",
+            "title": "MSCH TimeSlice",
+            "reference": "https://github.com/mariobilly/msch-timeslice",
+            "files": [
+                "https://github.com/mariobilly/msch-timeslice"
+            ],
+            "install_type": "git-clone",
+            "description": "Temporal displacement of video bands and cubes with time-offset color ramps, RGB spread and jitter."
+        },
+        {
+            "author": "mariobilly",
+            "title": "MSCH Typort",
+            "reference": "https://github.com/mariobilly/msch-typort",
+            "files": [
+                "https://github.com/mariobilly/msch-typort"
+            ],
+            "install_type": "git-clone",
+            "description": "Layered animated typography studio with Arabic text, keyframes, audio reactions and transparent or composite exports."
+        },
+        {
+            "author": "mariobilly",
+            "title": "MSCH Warp Wiggle",
+            "reference": "https://github.com/mariobilly/msch-warp-wiggle",
+            "files": [
+                "https://github.com/mariobilly/msch-warp-wiggle"
+            ],
+            "install_type": "git-clone",
+            "description": "Warped transitions between video clips, animated single-clip distortion and matching HUD overlays."
+        }
+    ]
+}
