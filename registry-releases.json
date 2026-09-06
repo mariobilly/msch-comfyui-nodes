@@ -1,6 +1,13 @@
 {
   "package": "msch-comfyui-nodes",
-  "version": "0.1.0",
+  "display_name": "MSCH Nodes",
   "publisher": "mariobilly",
-  "status": "prepared"
+  "version": "0.1.0",
+  "registry_status": "NodeVersionStatusPending",
+  "node_status": "NodeStatusActive",
+  "archive_bytes": 712373,
+  "archive_files": 342,
+  "node_ids": 35,
+  "registry": "https://registry.comfy.org/nodes/msch-comfyui-nodes",
+  "publish_run": "https://github.com/mariobilly/msch-comfyui-nodes/actions/runs/34044024968"
 }

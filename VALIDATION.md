@@ -13,3 +13,5 @@
 - Syntax, JSON workflows, catalog consistency and node-ID uniqueness are checked in GitHub Actions.
 
 Existing component renders and model-specific tests are documented with their examples. Consolidation preserves the implementations; this release does not claim a fresh GPU render of every showcase workflow or every optional model configuration.
+
+The downloaded Registry ZIP was also loaded through ComfyUI and passed the same node, HTTP-asset and typography-render checks. It contains 342 files and is approximately 696 KiB.
