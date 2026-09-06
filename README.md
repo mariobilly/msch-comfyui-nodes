@@ -24,7 +24,7 @@ Each repository includes installation instructions, a complete node reference, e
 
 ## Example results
 
-Twelve visual packages include actual rendered MP4/PNG demos with original geometric inputs. A2V includes verified compiled schedule data and model-dependent H3 workflow templates; an H3-generated video is not claimed. Theme and MCP Bridge affect the editor and do not render video.
+Twelve visual-effects packages include actual rendered MP4/PNG demos with original geometric inputs. A2V additionally includes a [completed H3 model-generation demo](https://github.com/mariobilly/msch-a2v/blob/main/examples/h3_rendered_demo.md), exact workflow and verified compiled schedule data. Theme and MCP Bridge affect the editor and do not render video.
 
 ## Installation
 
@@ -43,6 +43,6 @@ See [manager-entries.json](manager-entries.json) for the proposed database entri
 - A2V: 108 existing tests passed.
 - ScanFX: two regression tests passed after fixing OpenCV 5 text rendering.
 - Every package passed release syntax, JSON graph and metadata checks, including all 15 hosted GitHub Actions runs.
-- Actual demo renders cover the twelve visual packages; model inference and every browser interaction were not exhaustively tested.
+- Actual demo renders cover the twelve visual-effects packages and an A2V INT4 H3 generation on a 12 GB GPU. Pixel-upscale refinement, other model configurations and every browser interaction were not exhaustively tested.
 
 Project code uses MIT licensing. Bundled fonts/icons and optional models retain their respective licenses.
