@@ -32,7 +32,7 @@ Clone the desired repository into `ComfyUI/custom_nodes`, install its requiremen
 
 ## ComfyUI Manager and Registry
 
-Manager node-list registration: [PR #3247 submitted](https://github.com/Comfy-Org/ComfyUI-Manager/pull/3247), pending maintainer acceptance. Registry publisher `mariobilly` is configured in all 15 packages. Publication is pending a `REGISTRY_ACCESS_TOKEN` Actions secret and successful publishing runs. Neither a prepared action nor an open registration request proves public Manager availability.
+Manager node-list registration: [PR #3247 submitted](https://github.com/Comfy-Org/ComfyUI-Manager/pull/3247), pending maintainer acceptance. All 15 packages uploaded version `0.1.0` successfully under Registry publisher `mariobilly` on 2026-09-06. All publishing workflows passed, and every uploaded ZIP was downloaded and checked. Registry reported `Pending` for these versions at verification; Manager installation availability is not yet confirmed. See [Registry releases and workflow results](registry-releases.json).
 
 See [manager-entries.json](manager-entries.json) for the proposed database entries.
 
