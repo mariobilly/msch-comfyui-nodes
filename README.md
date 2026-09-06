@@ -32,7 +32,7 @@ Clone the desired repository into `ComfyUI/custom_nodes`, install its requiremen
 
 ## ComfyUI Manager and Registry
 
-Manager node-list registration: pending submission/maintainer acceptance. Registry publishing: prepared, but pending publisher ID and a `REGISTRY_ACCESS_TOKEN` Actions secret. Neither a prepared action nor an open registration request proves public Manager availability.
+Manager node-list registration: [PR #3247 submitted](https://github.com/Comfy-Org/ComfyUI-Manager/pull/3247), pending maintainer acceptance. Registry publishing: prepared, but pending publisher ID and a `REGISTRY_ACCESS_TOKEN` Actions secret. Neither a prepared action nor an open registration request proves public Manager availability.
 
 See [manager-entries.json](manager-entries.json) for the proposed database entries.
 
@@ -42,7 +42,7 @@ See [manager-entries.json](manager-entries.json) for the proposed database entri
 - All 15 runnable generated API examples passed the installed ComfyUI prompt validator.
 - A2V: 108 existing tests passed.
 - ScanFX: two regression tests passed after fixing OpenCV 5 text rendering.
-- Every package passed release syntax, JSON graph and metadata checks.
+- Every package passed release syntax, JSON graph and metadata checks, including all 15 hosted GitHub Actions runs.
 - Actual demo renders cover the twelve visual packages; model inference and every browser interaction were not exhaustively tested.
 
 Project code uses MIT licensing. Bundled fonts/icons and optional models retain their respective licenses.
