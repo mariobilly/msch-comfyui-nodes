@@ -24,6 +24,8 @@ Each repository includes installation instructions, a complete node reference, e
 
 ## Example results
 
+**[Browse the new MSCH Node Showcase](SHOWCASE.md)** — rendered videos, stills and API workflows organized across 14 packages.
+
 Twelve visual-effects packages include actual rendered MP4/PNG demos with original geometric inputs. A2V additionally includes a [completed H3 model-generation demo](https://github.com/mariobilly/msch-a2v/blob/main/examples/h3_rendered_demo.md), exact workflow and verified compiled schedule data. Theme and MCP Bridge affect the editor and do not render video.
 
 ## Installation
