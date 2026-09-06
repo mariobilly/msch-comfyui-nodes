@@ -1,0 +1,8 @@
+playwright==1.59.0
+Pillow>=10.0
+numpy
+av
+imageio-ffmpeg
+librosa>=0.10.2
+scipy
+torch

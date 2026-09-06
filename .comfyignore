@@ -1,0 +1,14 @@
+.github/
+tests/
+docs/
+**/tests/
+**/docs/
+**/examples/results/
+**/examples/inputs/
+**/examples/showcase/outputs/
+**/previews/
+**/*.mp4
+**/*.mov
+**/*.pdf
+registry-releases.json
+manager-entries.json

@@ -1,0 +1,10 @@
+{
+  "node_execution": true,
+  "note": "Rendered by the package from the supplied original geometric test scene.",
+  "frames": 36,
+  "width": 384,
+  "height": 256,
+  "fps": 12,
+  "input": "../inputs/demo.png or demo.mp4",
+  "settings": {}
+}

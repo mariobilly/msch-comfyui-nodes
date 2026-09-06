@@ -1,0 +1,4 @@
+torch
+kornia
+numpy
+librosa

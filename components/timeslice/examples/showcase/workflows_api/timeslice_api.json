@@ -1,0 +1,154 @@
+{
+  "1": {
+    "class_type": "VHS_LoadVideo",
+    "inputs": {
+      "video": "msch_robot.mp4",
+      "force_rate": 0,
+      "custom_width": 0,
+      "custom_height": 0,
+      "frame_load_cap": 0,
+      "skip_first_frames": 0,
+      "select_every_nth": 2,
+      "format": "None"
+    }
+  },
+  "2": {
+    "class_type": "TimeSlice",
+    "inputs": {
+      "axis": "vertical",
+      "span_frames": 28,
+      "band_px": 3,
+      "anchor": 0.5,
+      "curve": "ease",
+      "edge": "mirror",
+      "pixelate_px": 0,
+      "jitter_px": 0,
+      "jitter_seed": 0,
+      "chroma_spread": 8,
+      "cubic_px": 0,
+      "cubic_lateral": 1.0,
+      "tint_mode": "rainbow",
+      "tint_strength": 0.3,
+      "images": [
+        "1",
+        0
+      ]
+    }
+  },
+  "3": {
+    "class_type": "VHS_VideoCombine",
+    "inputs": {
+      "images": [
+        "2",
+        0
+      ],
+      "frame_rate": 25,
+      "loop_count": 0,
+      "filename_prefix": "msch_showcase/06_timeslice/robot_vertical_chroma_rainbow",
+      "format": "video/h264-mp4",
+      "pix_fmt": "yuv420p",
+      "crf": 17,
+      "save_metadata": true,
+      "trim_to_audio": false,
+      "pingpong": false,
+      "save_output": true
+    }
+  },
+  "4": {
+    "class_type": "TimeSlice",
+    "inputs": {
+      "axis": "horizontal",
+      "span_frames": 36,
+      "band_px": 1,
+      "anchor": 0.5,
+      "curve": "linear",
+      "edge": "mirror",
+      "pixelate_px": 0,
+      "jitter_px": 0,
+      "jitter_seed": 0,
+      "chroma_spread": 0,
+      "cubic_px": 48,
+      "cubic_lateral": 1.5,
+      "tint_mode": "thermal",
+      "tint_strength": 0.45,
+      "images": [
+        "1",
+        0
+      ]
+    }
+  },
+  "5": {
+    "class_type": "VHS_VideoCombine",
+    "inputs": {
+      "images": [
+        "4",
+        0
+      ],
+      "frame_rate": 25,
+      "loop_count": 0,
+      "filename_prefix": "msch_showcase/06_timeslice/robot_time_cubes_thermal",
+      "format": "video/h264-mp4",
+      "pix_fmt": "yuv420p",
+      "crf": 17,
+      "save_metadata": true,
+      "trim_to_audio": false,
+      "pingpong": false,
+      "save_output": true
+    }
+  },
+  "6": {
+    "class_type": "VHS_LoadVideo",
+    "inputs": {
+      "video": "msch_kids.mp4",
+      "force_rate": 0,
+      "custom_width": 0,
+      "custom_height": 0,
+      "frame_load_cap": 150,
+      "skip_first_frames": 0,
+      "select_every_nth": 1,
+      "format": "None"
+    }
+  },
+  "7": {
+    "class_type": "TimeSlice",
+    "inputs": {
+      "axis": "horizontal",
+      "span_frames": 40,
+      "band_px": 6,
+      "anchor": 0.0,
+      "curve": "linear",
+      "edge": "clamp",
+      "pixelate_px": 6,
+      "jitter_px": 30,
+      "jitter_seed": 5,
+      "chroma_spread": 4,
+      "cubic_px": 0,
+      "cubic_lateral": 1.0,
+      "tint_mode": "off",
+      "tint_strength": 0.0,
+      "images": [
+        "6",
+        0
+      ]
+    }
+  },
+  "8": {
+    "class_type": "VHS_VideoCombine",
+    "inputs": {
+      "images": [
+        "7",
+        0
+      ],
+      "frame_rate": 30,
+      "loop_count": 0,
+      "filename_prefix": "msch_showcase/06_timeslice/kids_datamosh_jitter",
+      "format": "video/h264-mp4",
+      "pix_fmt": "yuv420p",
+      "crf": 17,
+      "save_metadata": true,
+      "trim_to_audio": false,
+      "pingpong": false,
+      "save_output": true
+    }
+  }
+}

@@ -1,0 +1,140 @@
+{
+  "10": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "msch_showcase/stills/motel.jpg"
+    }
+  },
+  "11": {
+    "class_type": "ScanFX",
+    "inputs": {
+      "image": [
+        "10",
+        0
+      ],
+      "mix": 0.9,
+      "mask_feather": 4.0,
+      "invert_mask": false,
+      "animation_speed": 1.0,
+      "seed": 0,
+      "effect_1": "wireframe",
+      "strength_1": 0.7,
+      "effect_2": "lidar",
+      "strength_2": 0.35,
+      "effect_3": "sonar",
+      "strength_3": 0.6,
+      "effect_4": "none",
+      "strength_4": 1.0,
+      "effect_5": "none",
+      "strength_5": 1.0,
+      "effect_6": "none",
+      "strength_6": 1.0,
+      "effect_7": "none",
+      "strength_7": 1.0,
+      "effect_8": "none",
+      "strength_8": 1.0
+    }
+  },
+  "12": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "11",
+        0
+      ],
+      "filename_prefix": "msch_showcase/04_scanfx/lidar_sonar"
+    }
+  },
+  "7": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "msch_showcase/stills/city_blur.jpg"
+    }
+  },
+  "8": {
+    "class_type": "ScanFX",
+    "inputs": {
+      "image": [
+        "7",
+        0
+      ],
+      "mix": 0.85,
+      "mask_feather": 4.0,
+      "invert_mask": false,
+      "animation_speed": 1.0,
+      "seed": 0,
+      "effect_1": "xray",
+      "strength_1": 0.55,
+      "effect_2": "chroma",
+      "strength_2": 0.5,
+      "effect_3": "glitch",
+      "strength_3": 0.35,
+      "effect_4": "none",
+      "strength_4": 1.0,
+      "effect_5": "none",
+      "strength_5": 1.0,
+      "effect_6": "none",
+      "strength_6": 1.0,
+      "effect_7": "none",
+      "strength_7": 1.0,
+      "effect_8": "none",
+      "strength_8": 1.0
+    }
+  },
+  "9": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "8",
+        0
+      ],
+      "filename_prefix": "msch_showcase/04_scanfx/xray_glitch"
+    }
+  },
+  "13": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "msch_showcase/stills/floating_island.jpg"
+    }
+  },
+  "14": {
+    "class_type": "ScanFX",
+    "inputs": {
+      "image": [
+        "13",
+        0
+      ],
+      "mix": 1.0,
+      "mask_feather": 4.0,
+      "invert_mask": false,
+      "animation_speed": 1.0,
+      "seed": 0,
+      "effect_1": "depthmap",
+      "strength_1": 0.9,
+      "effect_2": "hud",
+      "strength_2": 0.6,
+      "effect_3": "holo_sweep",
+      "strength_3": 0.5,
+      "effect_4": "none",
+      "strength_4": 1.0,
+      "effect_5": "none",
+      "strength_5": 1.0,
+      "effect_6": "none",
+      "strength_6": 1.0,
+      "effect_7": "none",
+      "strength_7": 1.0,
+      "effect_8": "none",
+      "strength_8": 1.0
+    }
+  },
+  "15": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "14",
+        0
+      ],
+      "filename_prefix": "msch_showcase/04_scanfx/depthmap_hud"
+    }
+  }
+}

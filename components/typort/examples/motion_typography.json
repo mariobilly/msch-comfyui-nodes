@@ -1,0 +1,76 @@
+{
+  "id": "f835af13-9ce7-560e-a21b-6bb6e68d10f4",
+  "revision": 0,
+  "last_node_id": 1,
+  "last_link_id": 0,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "MarioTyport",
+      "pos": [
+        40,
+        100
+      ],
+      "size": [
+        350,
+        460
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "export_path",
+          "type": "STRING",
+          "links": []
+        },
+        {
+          "name": "poster",
+          "type": "IMAGE",
+          "links": []
+        },
+        {
+          "name": "alpha_mask",
+          "type": "MASK",
+          "links": []
+        },
+        {
+          "name": "project_json",
+          "type": "STRING",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MarioTyport"
+      },
+      "widgets_values": [
+        "MAKE\nIT MOVE",
+        "Black",
+        "Line reveal",
+        2.0,
+        384,
+        256,
+        12,
+        "MP4 composite",
+        "Off",
+        "",
+        "",
+        "mariotyport"
+      ]
+    }
+  ],
+  "links": [],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.7,
+      "offset": [
+        20,
+        40
+      ]
+    }
+  },
+  "version": 0.4
+}

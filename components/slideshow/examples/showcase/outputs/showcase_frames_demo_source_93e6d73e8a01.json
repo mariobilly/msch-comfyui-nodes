@@ -1,0 +1,164 @@
+{
+  "settings": {
+    "width": 1280,
+    "height": 720,
+    "fps": 30,
+    "bpm": 128.0,
+    "beats_per_image": 2.0,
+    "seconds_per_image": 1.0,
+    "timing": "Seconds",
+    "pacing": "Even",
+    "layout": "Full frame",
+    "framing": "Fill",
+    "transition": "Whip",
+    "transition_seconds": 0.2,
+    "intensity": 0.9,
+    "motion_blur": 1,
+    "grain": 0.05,
+    "accent": "#DFFF40",
+    "graphics": true,
+    "font_path": "",
+    "seed": 1,
+    "show_counter": true,
+    "show_progress": true,
+    "show_headlines": true
+  },
+  "quality": "Preview",
+  "frame_count": 360,
+  "duration_seconds": 12.0,
+  "image_order": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "headlines": [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+  ],
+  "shot_start_frames": [
+    0,
+    30,
+    60,
+    90,
+    120,
+    150,
+    180,
+    210,
+    240,
+    270,
+    300,
+    330
+  ],
+  "shot_plan": null,
+  "framing_data": null,
+  "headline_layers": [],
+  "prompt": {
+    "1": {
+      "class_type": "marioslideshow",
+      "inputs": {
+        "image_folder": "E:/ComfyUI_windows_portable/ComfyUI/input/msch_showcase/slideshow_b",
+        "width": 1280,
+        "height": 720,
+        "fps": 30,
+        "timing": "Seconds",
+        "bpm": 128.0,
+        "beats_per_image": 2.0,
+        "seconds_per_image": 1.0,
+        "pacing": "Even",
+        "layout": "Full frame",
+        "framing": "Fill",
+        "transition": "Whip",
+        "transition_seconds": 0.2,
+        "intensity": 0.9,
+        "motion_blur": "Off",
+        "grain": 0.05,
+        "accent": "#DFFF40",
+        "graphics": true,
+        "headlines": "",
+        "font_path": "",
+        "audio_file": "",
+        "quality": "Preview",
+        "shuffle": false,
+        "seed": 1,
+        "filename_prefix": "showcase_frames_demo_source"
+      },
+      "is_changed": [
+        "0fdd9a864bfcf437ad9277df723d7543ad6f01965852c74b79fb95406675c194"
+      ]
+    },
+    "2": {
+      "class_type": "MarioSlideshowFrames",
+      "inputs": {
+        "video": [
+          "1",
+          0
+        ],
+        "start_frame": 30,
+        "max_frames": 120,
+        "memory_limit_gb": 3.0
+      }
+    },
+    "3": {
+      "class_type": "TimeSlice",
+      "inputs": {
+        "images": [
+          "2",
+          0
+        ],
+        "axis": "vertical",
+        "span_frames": 20,
+        "band_px": 2,
+        "anchor": 0.5,
+        "curve": "ease",
+        "edge": "mirror",
+        "pixelate_px": 0,
+        "jitter_px": 0,
+        "jitter_seed": 0,
+        "chroma_spread": 6,
+        "cubic_px": 0,
+        "cubic_lateral": 1.0,
+        "tint_mode": "off",
+        "tint_strength": 0.0
+      }
+    },
+    "4": {
+      "class_type": "VHS_VideoCombine",
+      "inputs": {
+        "images": [
+          "3",
+          0
+        ],
+        "frame_rate": 30.0,
+        "loop_count": 0,
+        "filename_prefix": "msch_showcase/10_marioslideshow/extract_frames_into_timeslice",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 17,
+        "save_metadata": true,
+        "trim_to_audio": false,
+        "pingpong": false,
+        "save_output": true
+      }
+    }
+  },
+  "workflow": null
+}

@@ -1,0 +1,50 @@
+{
+  "1": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "demo.png"
+    }
+  },
+  "2": {
+    "class_type": "PointillismEffect",
+    "inputs": {
+      "frames": 24,
+      "fps": 12,
+      "hold_frames": 2,
+      "frame_drop": 0.0,
+      "saturation": 1.35,
+      "contrast": 1.15,
+      "density": 40.0,
+      "point_size": 2.5,
+      "size_variation": 0.5,
+      "size_by_darkness": 0.0,
+      "edge_softness": 0.3,
+      "color_jitter": 0.05,
+      "dot_opacity": 1.0,
+      "distribution": "random",
+      "background": "white",
+      "background_color": "#FFFFFF",
+      "distortion": 0.35,
+      "distortion_scale": 3.5,
+      "ink_bleed": 0.15,
+      "paper_grain": 0.12,
+      "seed": 0,
+      "animate_seed": true,
+      "image": [
+        "1",
+        0
+      ]
+    }
+  },
+  "3": {
+    "class_type": "SaveVideo",
+    "inputs": {
+      "filename_prefix": "video/msch-demo",
+      "format": "auto",
+      "video": [
+        "2",
+        0
+      ]
+    }
+  }
+}

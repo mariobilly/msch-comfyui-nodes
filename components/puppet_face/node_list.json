@@ -1,0 +1,5 @@
+{
+  "PuppetFaceOverlay": "Draw facial landmark dots, optional connecting mesh and an animated mouse cursor over each frame. Available tracking backends are selected automatically, with a face-box approximation when precise landmarks are unavailable. The cursor can follow a landmark or sweep between normalized coordinates. Dot and mesh settings control appearance; this node overlays existing expressions and does not animate the person's face.",
+  "PuppetFaceLoadVideo": "Decode a selected video into RGB IMAGE frames using OpenCV. Limit the number of frames, sample every nth frame and optionally reduce the maximum image side to bound memory. Outputs the decoded batch, effective FPS after subsampling and frame count. Audio is not decoded.",
+  "PuppetFaceSaveVideo": "Encode an IMAGE batch as a uniquely numbered MP4 in ComfyUI's output directory using OpenCV's mp4v writer. Connect the loader's effective FPS to preserve playback speed. Returns the saved path as STRING and shows the filename in the node UI. It does not mux audio."
+}

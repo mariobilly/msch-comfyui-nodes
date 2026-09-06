@@ -1,0 +1,70 @@
+{
+  "1": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "demo.png"
+    }
+  },
+  "2": {
+    "class_type": "SlideshowForge_Director",
+    "inputs": {
+      "preset": "classic_ken_burns",
+      "duration_mode": "total_duration",
+      "total_duration": 2.0,
+      "per_image_duration": 3.0,
+      "fps": 12,
+      "seed": 0,
+      "beats_per_image": 2,
+      "timeline_json_in": "",
+      "on_invalid_json": "error",
+      "shuffle_order": false,
+      "loop": false,
+      "canvas_fit": "cover",
+      "output_width": 0,
+      "output_height": 0,
+      "images": [
+        "1",
+        0
+      ]
+    }
+  },
+  "3": {
+    "class_type": "SlideshowForge_GPURenderer",
+    "inputs": {
+      "fps": 12,
+      "render_chunk_frames": 64,
+      "precision": "fp16",
+      "device": "auto",
+      "max_output_bytes_gb": 8.0,
+      "images": [
+        "1",
+        0
+      ],
+      "timeline_json": [
+        "2",
+        0
+      ]
+    }
+  },
+  "4": {
+    "class_type": "CreateVideo",
+    "inputs": {
+      "fps": 12,
+      "images": [
+        "3",
+        0
+      ]
+    }
+  },
+  "5": {
+    "class_type": "SaveVideo",
+    "inputs": {
+      "filename_prefix": "video/msch-demo",
+      "format": "auto",
+      "video": [
+        "4",
+        0
+      ]
+    }
+  }
+}

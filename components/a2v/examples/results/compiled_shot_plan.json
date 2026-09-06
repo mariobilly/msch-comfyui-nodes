@@ -1,0 +1,39 @@
+{
+  "shots": [
+    {
+      "kind": "single",
+      "blocks": [
+        {
+          "id": "shot-1",
+          "prompt": "A colorful geometric sculpture rotating under soft studio lighting.",
+          "negative": "blurry, low quality",
+          "start_beat": 0,
+          "end_beat": 4,
+          "start_frame": 0,
+          "end_frame": 48,
+          "fade_in_frames": 0,
+          "fade_out_frames": 0,
+          "crossfade_frames": 0,
+          "group_id": null,
+          "seed": null,
+          "ref_image_slot": null,
+          "ref_audio_slot": null
+        }
+      ],
+      "n_frames": 48,
+      "bucket_frames": 124,
+      "trim_tail": 76,
+      "seed": 42,
+      "cond_keyframes": [
+        {
+          "frame": 0,
+          "prompt": "A colorful geometric sculpture rotating under soft studio lighting.",
+          "negative": "blurry, low quality"
+        }
+      ]
+    }
+  ],
+  "fps": 24,
+  "total_frames": 48,
+  "audio_path": "beat.wav"
+}

@@ -1,0 +1,488 @@
+/* Dark, dense, pro-audio layout. Purple accent #7b2ff7, teal secondary #18b5b0.
+   Scoped under .mscha2v-modal-overlay so nothing leaks into ComfyUI's own UI. */
+
+.mscha2v-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mscha2v-modal {
+  width: 96vw;
+  height: 92vh;
+  background: #1a1720;
+  border: 1px solid #322d3d;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  color: #e8e6ee;
+  font-family: -apple-system, "Segoe UI", sans-serif;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+.mscha2v-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 16px;
+  background: #14121a;
+  border-bottom: 1px solid #322d3d;
+}
+
+.mscha2v-title-block {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.mscha2v-title {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  color: #f2f0f6;
+}
+
+.mscha2v-subtitle {
+  font-size: 11px;
+  color: #8f89a3;
+  font-family: monospace;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.mscha2v-btn {
+  background: #2a2534;
+  color: #e8e6ee;
+  border: 1px solid #3a3648;
+  border-radius: 4px;
+  padding: 5px 10px;
+  font-size: 12px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.mscha2v-btn:hover:not(:disabled) {
+  background: #322d3d;
+  border-color: #7b2ff7;
+}
+
+.mscha2v-btn:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.mscha2v-btn-primary {
+  background: #18b5b0;
+  border-color: #18b5b0;
+  color: #06201f;
+  font-weight: 600;
+}
+
+.mscha2v-btn-primary:hover {
+  background: #22cec8;
+}
+
+.mscha2v-btn-block {
+  width: 100%;
+}
+
+.mscha2v-select,
+select.mscha2v-select {
+  background: #2a2534;
+  color: #e8e6ee;
+  border: 1px solid #3a3648;
+  border-radius: 4px;
+  padding: 4px 6px;
+  font-size: 12px;
+}
+
+.mscha2v-inline,
+.mscha2v-inline-check {
+  font-size: 12px;
+  color: #b6b0c8;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.mscha2v-body {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  min-height: 0;
+}
+
+/* ---------- Left panel: audio source + sequence settings ---------- */
+
+.mscha2v-left-panel {
+  background: #17141d;
+  border-right: 1px solid #322d3d;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.mscha2v-panel-section {
+  padding: 12px;
+  border-bottom: 1px solid #241f2d;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mscha2v-panel-section h3 {
+  margin: 0 0 2px;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #6d6780;
+  font-weight: 700;
+}
+
+.mscha2v-dropzone {
+  border: 1px dashed #3a3648;
+  border-radius: 6px;
+  padding: 14px 8px;
+  text-align: center;
+  font-size: 11px;
+  color: #8f89a3;
+  cursor: pointer;
+}
+
+.mscha2v-dropzone:hover,
+.mscha2v-dropzone.dragover {
+  border-color: #7b2ff7;
+  color: #cfc8e6;
+  background: rgba(123, 47, 247, 0.08);
+}
+
+.mscha2v-source-buttons {
+  display: flex;
+  gap: 6px;
+}
+
+.mscha2v-source-buttons .mscha2v-btn {
+  flex: 1;
+}
+
+.mscha2v-file-count {
+  font-size: 10px;
+  color: #6d6780;
+}
+
+.mscha2v-source-tabs {
+  display: flex;
+  gap: 4px;
+  background: #100e16;
+  border-radius: 4px;
+  padding: 2px;
+}
+
+.mscha2v-tab {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: #8f89a3;
+  font-size: 11px;
+  padding: 5px 6px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.mscha2v-tab.active {
+  background: #2a2534;
+  color: #f2f0f6;
+}
+
+.mscha2v-search {
+  background: #100e16;
+  color: #e8e6ee;
+  border: 1px solid #262231;
+  border-radius: 4px;
+  padding: 5px 7px;
+  font-size: 11px;
+}
+
+.mscha2v-file-list {
+  max-height: 260px;
+  overflow-y: auto;
+  border: 1px solid #241f2d;
+  border-radius: 4px;
+  background: #100e16;
+}
+
+.mscha2v-file-item {
+  padding: 6px 8px;
+  border-bottom: 1px solid #1c1824;
+  cursor: pointer;
+}
+
+.mscha2v-file-item:last-child {
+  border-bottom: none;
+}
+
+.mscha2v-file-item:hover {
+  background: #1c1824;
+}
+
+.mscha2v-file-item.active {
+  background: rgba(123, 47, 247, 0.18);
+}
+
+.mscha2v-file-name {
+  font-size: 11px;
+  color: #e8e6ee;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.mscha2v-file-sub {
+  font-size: 9px;
+  color: #6d6780;
+  margin-top: 1px;
+}
+
+.mscha2v-settings-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.mscha2v-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 11px;
+  color: #b6b0c8;
+}
+
+.mscha2v-field input,
+.mscha2v-field select {
+  background: #2a2534;
+  color: #e8e6ee;
+  border: 1px solid #3a3648;
+  border-radius: 4px;
+  padding: 5px 7px;
+  font-size: 12px;
+}
+
+.mscha2v-field input:focus,
+.mscha2v-field select:focus {
+  outline: 1px solid #7b2ff7;
+}
+
+/* ---------- Main column ---------- */
+
+.mscha2v-main {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+}
+
+.mscha2v-toolbar-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 12px;
+  border-bottom: 1px solid #241f2d;
+  flex-wrap: wrap;
+}
+
+.mscha2v-toolbar-row-2 {
+  background: #14121a;
+}
+
+.mscha2v-timecode {
+  font-family: monospace;
+  font-size: 12px;
+  color: #f2f0f6;
+  min-width: 150px;
+}
+
+.mscha2v-filename-readout {
+  font-family: monospace;
+  font-size: 11px;
+  color: #7b2ff7;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 220px;
+}
+
+.mscha2v-toolbar-row .mscha2v-readout {
+  font-family: monospace;
+  font-size: 11px;
+  color: #18b5b0;
+  flex: 1;
+  min-width: 200px;
+}
+
+.mscha2v-offset-readout {
+  font-family: monospace;
+  font-size: 11px;
+  color: #b6b0c8;
+  min-width: 70px;
+}
+
+.mscha2v-waveform-wrap {
+  border-bottom: 1px solid #322d3d;
+}
+
+.mscha2v-waveform {
+  width: 100%;
+  height: 130px;
+  display: block;
+  cursor: pointer;
+}
+
+.mscha2v-timeline {
+  width: 100%;
+  height: 130px;
+  display: block;
+  cursor: default;
+  border-bottom: 1px solid #322d3d;
+}
+
+.mscha2v-block-toolbar {
+  display: flex;
+  gap: 6px;
+  padding: 6px 12px;
+  border-bottom: 1px solid #241f2d;
+}
+
+.mscha2v-inspector {
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow-y: auto;
+  flex: 1;
+  min-height: 0;
+}
+
+.mscha2v-inspector-empty {
+  color: #6d6780;
+  font-size: 12px;
+  padding-top: 16px;
+  text-align: center;
+}
+
+.mscha2v-fields-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.mscha2v-field-col {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  font-size: 10px;
+  color: #8f89a3;
+  min-width: 100px;
+}
+
+.mscha2v-field-col input {
+  background: #2a2534;
+  color: #e8e6ee;
+  border: 1px solid #3a3648;
+  border-radius: 4px;
+  padding: 5px 7px;
+  font-size: 12px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.mscha2v-field-col input[readonly] {
+  color: #8f89a3;
+  background: #1c1824;
+}
+
+.mscha2v-readout-inline {
+  font-family: monospace;
+  font-size: 11px;
+  color: #18b5b0;
+  padding: 5px 0;
+}
+
+.mscha2v-field-group-readout .mscha2v-readout-inline {
+  color: #7b2ff7;
+}
+
+.mscha2v-prompt-main {
+  background: #100e16;
+  color: #e8e6ee;
+  border: 1px solid #3a3648;
+  border-radius: 4px;
+  padding: 10px;
+  resize: vertical;
+  min-height: 100px;
+  flex: 1;
+}
+
+.mscha2v-prompt-negative {
+  background: #100e16;
+  color: #b6b0c8;
+  border: 1px solid #262231;
+  border-radius: 4px;
+  padding: 8px 10px;
+  resize: vertical;
+  min-height: 44px;
+}
+
+.mono {
+  font-family: "SFMono-Regular", Consolas, Menlo, monospace;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.mscha2v-hint {
+  padding: 6px 12px;
+  font-size: 10px;
+  color: #55506a;
+  border-top: 1px solid #241f2d;
+  line-height: 1.5;
+}
+
+.mscha2v-ctx-menu {
+  position: fixed;
+  z-index: 10010;
+  background: #201c29;
+  border: 1px solid #3a3648;
+  border-radius: 6px;
+  padding: 4px;
+  min-width: 140px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  font-size: 12px;
+}
+
+.mscha2v-ctx-item {
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #e8e6ee;
+}
+
+.mscha2v-ctx-item:hover {
+  background: #7b2ff7;
+}
+
+.mscha2v-ctx-item.disabled {
+  color: #55506a;
+  cursor: default;
+}
+
+.mscha2v-ctx-item.disabled:hover {
+  background: transparent;
+}

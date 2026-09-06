@@ -1,0 +1,229 @@
+{
+  "1": {
+    "class_type": "VHS_LoadVideo",
+    "inputs": {
+      "video": "msch_kids.mp4",
+      "force_rate": 0,
+      "custom_width": 0,
+      "custom_height": 0,
+      "frame_load_cap": 0,
+      "skip_first_frames": 0,
+      "select_every_nth": 1,
+      "format": "None"
+    }
+  },
+  "2": {
+    "class_type": "LoadAudio",
+    "inputs": {
+      "audio": "msch_song_7s.mp3"
+    }
+  },
+  "3": {
+    "class_type": "LyricSyncAlign",
+    "inputs": {
+      "audio": [
+        "2",
+        0
+      ],
+      "lyrics": "Film spectators are quiet vampires\nThe spectator is a dying animal\nAn explosion of birds at dawn\nA kiss in the storm\nThe barn is burning\nMotel money murder madness",
+      "translation": "مشاهدو الأفلام مصّاصو دماء صامتون\nالمشاهد حيوان يحتضر\nانفجار من الطيور عند الفجر\nقبلة في العاصفة\nالحظيرة تحترق\nموتيل، مال، قتل، جنون",
+      "language": "en",
+      "whisper_model": "small",
+      "whisperx_exe": ""
+    }
+  },
+  "4": {
+    "class_type": "LyricSyncPalette",
+    "inputs": {
+      "num_colors": 10,
+      "color_01": "#FFFFFF",
+      "color_02": "#7DEFA1",
+      "color_03": "#5FE39A",
+      "color_04": "#F25CC1",
+      "color_05": "#FF74B8",
+      "color_06": "#63D6F0",
+      "color_07": "#9B5DE5",
+      "color_08": "#B388F0",
+      "color_09": "#F5B8D6",
+      "color_10": "#FFD23F",
+      "color_11": "#15151E",
+      "color_12": "#FFD23F",
+      "extra_hex": "",
+      "weight_white": 1
+    }
+  },
+  "5": {
+    "class_type": "LyricSyncMosaic",
+    "inputs": {
+      "frame_rate": 30.0,
+      "cols": 64,
+      "font_path": "LOCAL_FILES/tahoma.ttf",
+      "letter_scale": 0.72,
+      "scroll_dir": "down",
+      "scroll_speed": 0.12,
+      "color_density": 0.13,
+      "flicker_period": 4,
+      "wordbox_density": 0.6,
+      "wordbox_scale": 2.3,
+      "bg_key": true,
+      "bg_tol": 0.0,
+      "threshold_bias": 0.0,
+      "invert_subject": false,
+      "fg_detail": 3.0,
+      "posterize": 7,
+      "subject_max": 0.95,
+      "subject_gamma": 0.6,
+      "fg_gap": 0,
+      "text_color": "#15151E",
+      "seed": 7,
+      "images": [
+        "1",
+        0
+      ],
+      "timing": [
+        "3",
+        0
+      ],
+      "palette_in": [
+        "4",
+        0
+      ]
+    }
+  },
+  "6": {
+    "class_type": "VHS_VideoCombine",
+    "inputs": {
+      "images": [
+        "5",
+        0
+      ],
+      "frame_rate": 30,
+      "loop_count": 0,
+      "filename_prefix": "msch_showcase/12_lyric_sync/word_mosaic_kids",
+      "format": "video/h264-mp4",
+      "pix_fmt": "yuv420p",
+      "crf": 17,
+      "save_metadata": true,
+      "trim_to_audio": false,
+      "pingpong": false,
+      "save_output": true,
+      "audio": [
+        "2",
+        0
+      ]
+    }
+  },
+  "7": {
+    "class_type": "LyricSyncOverlay",
+    "inputs": {
+      "images": [
+        "1",
+        0
+      ],
+      "timing": [
+        "3",
+        0
+      ],
+      "frame_rate": 30.0,
+      "bilingual": true,
+      "position": "bottom",
+      "font_path": "LOCAL_FILES/segoeui.ttf",
+      "font_size": 0,
+      "text_color": "#FFFFFF",
+      "box_color": "#000000",
+      "box_opacity": 0.6,
+      "corner_radius": 18,
+      "padding": 24,
+      "y_offset": 0,
+      "max_width_pct": 0.8,
+      "fade_ms": 150,
+      "hold_ms": 0,
+      "highlight_words": true,
+      "highlight_color": "#FFDC50"
+    }
+  },
+  "8": {
+    "class_type": "VHS_VideoCombine",
+    "inputs": {
+      "images": [
+        "7",
+        0
+      ],
+      "frame_rate": 30,
+      "loop_count": 0,
+      "filename_prefix": "msch_showcase/12_lyric_sync/caption_overlay_bilingual",
+      "format": "video/h264-mp4",
+      "pix_fmt": "yuv420p",
+      "crf": 17,
+      "save_metadata": true,
+      "trim_to_audio": false,
+      "pingpong": false,
+      "save_output": true,
+      "audio": [
+        "2",
+        0
+      ]
+    }
+  },
+  "9": {
+    "class_type": "LyricSyncMosaic",
+    "inputs": {
+      "frame_rate": 30.0,
+      "cols": 40,
+      "font_path": "LOCAL_FILES/tahoma.ttf",
+      "letter_scale": 0.72,
+      "scroll_dir": "left",
+      "scroll_speed": 0.12,
+      "color_density": 0.2,
+      "flicker_period": 4,
+      "wordbox_density": 0.6,
+      "wordbox_scale": 3.0,
+      "bg_key": true,
+      "bg_tol": 0.0,
+      "threshold_bias": 0.0,
+      "invert_subject": false,
+      "fg_detail": 3.0,
+      "posterize": 7,
+      "subject_max": 0.95,
+      "subject_gamma": 0.6,
+      "fg_gap": 0,
+      "text_color": "#15151E",
+      "seed": 3,
+      "images": [
+        "1",
+        0
+      ],
+      "timing": [
+        "3",
+        0
+      ],
+      "palette_in": [
+        "4",
+        0
+      ]
+    }
+  },
+  "10": {
+    "class_type": "VHS_VideoCombine",
+    "inputs": {
+      "images": [
+        "9",
+        0
+      ],
+      "frame_rate": 30,
+      "loop_count": 0,
+      "filename_prefix": "msch_showcase/12_lyric_sync/word_mosaic_kids_bold_grid",
+      "format": "video/h264-mp4",
+      "pix_fmt": "yuv420p",
+      "crf": 17,
+      "save_metadata": true,
+      "trim_to_audio": false,
+      "pingpong": false,
+      "save_output": true,
+      "audio": [
+        "2",
+        0
+      ]
+    }
+  }
+}

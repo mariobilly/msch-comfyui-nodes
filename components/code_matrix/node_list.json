@@ -1,0 +1,3 @@
+{
+  "CodeMatrixASCII": "Rebuild each input frame from a monospace glyph atlas. Brightness mode selects glyphs from a dark-to-light ramp; random mode distributes characters above a luminance threshold and can refresh them over time. Choose ASCII, binary, Matrix or a custom character set, then set column density, colors and tonal mapping. Returns the rendered IMAGE batch for further processing or video encoding."
+}

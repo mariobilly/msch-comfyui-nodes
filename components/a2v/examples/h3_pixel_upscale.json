@@ -1,0 +1,863 @@
+{
+  "id": "cd23f8aa-97f4-5ec9-81c7-521828b3c8d9",
+  "revision": 0,
+  "last_node_id": 15,
+  "last_link_id": 22,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "UNETLoader",
+      "pos": [
+        40,
+        100
+      ],
+      "size": [
+        350,
+        460
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            1
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UNETLoader"
+      },
+      "widgets_values": [
+        "MiniMax_H3_FL2VA_pruned_int8_convrot.safetensors",
+        "default"
+      ]
+    },
+    {
+      "id": 2,
+      "type": "LoraLoaderModelOnly",
+      "pos": [
+        440,
+        100
+      ],
+      "size": [
+        350,
+        460
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            7,
+            14
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoraLoaderModelOnly"
+      },
+      "widgets_values": [
+        "minimax_h3_fl2va_4step_lora.safetensors",
+        1.0
+      ]
+    },
+    {
+      "id": 3,
+      "type": "CLIPLoader",
+      "pos": [
+        840,
+        100
+      ],
+      "size": [
+        350,
+        460
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            3
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPLoader"
+      },
+      "widgets_values": [
+        "SELECT_H3_TEXT_ENCODER.safetensors",
+        "minimax",
+        "default"
+      ]
+    },
+    {
+      "id": 4,
+      "type": "VAELoader",
+      "pos": [
+        1240,
+        100
+      ],
+      "size": [
+        350,
+        460
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            4,
+            10,
+            17,
+            19
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "SELECT_H3_VIDEO_VAE.safetensors"
+      ]
+    },
+    {
+      "id": 5,
+      "type": "VAELoader",
+      "pos": [
+        1640,
+        100
+      ],
+      "size": [
+        350,
+        460
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            5
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "SELECT_H3_AUDIO_VAE.safetensors"
+      ]
+    },
+    {
+      "id": 6,
+      "type": "MschA2V_BeatPromptSequencer",
+      "pos": [
+        2040,
+        100
+      ],
+      "size": [
+        350,
+        460
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "prompt_schedule",
+          "type": "MSCHA2V_SCHEDULE",
+          "links": [
+            2
+          ]
+        },
+        {
+          "name": "total_frames",
+          "type": "INT",
+          "links": []
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": [
+            6,
+            12,
+            21
+          ]
+        },
+        {
+          "name": "bpm",
+          "type": "FLOAT",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MschA2V_BeatPromptSequencer"
+      },
+      "widgets_values": [
+        "beat.wav",
+        "{\"version\": 1, \"fps\": 24, \"total_frames\": 48, \"audio_path\": \"beat.wav\", \"beat_map\": {\"duration_sec\": 2.0, \"sr\": 24000, \"bpm\": 120.0, \"beats_sec\": [0.0, 0.5, 1.0, 1.5], \"onsets_sec\": [0.0, 0.5, 1.0, 1.5], \"downbeats_sec\": [], \"analysis_source\": \"full\", \"offset_ms\": 0}, \"grid\": \"every_beat\", \"curve\": \"linear\", \"blocks\": [{\"id\": \"shot-1\", \"prompt\": \"A colorful geometric sculpture rotating under soft studio lighting.\", \"negative\": \"blurry, low quality\", \"start_beat\": 0, \"end_beat\": 4, \"start_frame\": 0, \"end_frame\": 0, \"fade_in_frames\": 0, \"fade_out_frames\": 0, \"crossfade_frames\": 0, \"group_id\": null, \"seed\": null, \"ref_image_slot\": null, \"ref_audio_slot\": null}], \"master_seed\": 42}",
+        -1.0,
+        -1.0
+      ]
+    },
+    {
+      "id": 7,
+      "type": "MschA2V_ShotPlanner",
+      "pos": [
+        2440,
+        100
+      ],
+      "size": [
+        350,
+        460
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "prompt_schedule",
+          "type": "MSCHA2V_SCHEDULE",
+          "link": 2
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 3
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 4
+        },
+        {
+          "name": "audio_vae",
+          "type": "VAE",
+          "link": 5
+        },
+        {
+          "name": "timeline_audio",
+          "type": "AUDIO",
+          "link": 6
+        },
+        {
+          "name": "ref_image_0",
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "ref_image_1",
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "ref_image_2",
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "ref_video_0",
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "ref_video_audio_0",
+          "type": "AUDIO",
+          "link": null
+        },
+        {
+          "name": "ref_audio_0",
+          "type": "AUDIO",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "shot_plan",
+          "type": "MSCHA2V_SHOT_PLAN",
+          "links": [
+            8,
+            15
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MschA2V_ShotPlanner"
+      },
+      "widgets_values": [
+        42,
+        512,
+        512,
+        0,
+        "lock_source",
+        "auto",
+        true,
+        "match",
+        ""
+      ]
+    },
+    {
+      "id": 8,
+      "type": "MschA2V_BeatKSampler",
+      "pos": [
+        2840,
+        100
+      ],
+      "size": [
+        350,
+        460
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 7
+        },
+        {
+          "name": "shot_plan",
+          "type": "MSCHA2V_SHOT_PLAN",
+          "link": 8
+        }
+      ],
+      "outputs": [
+        {
+          "name": "latents",
+          "type": "MSCHA2V_LATENTS",
+          "links": [
+            9,
+            16
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MschA2V_BeatKSampler"
+      },
+      "widgets_values": [
+        4,
+        12.0,
+        3.0,
+        "dual_clock_euler",
+        "native_flow",
+        1.0,
+        1.0,
+        42
+      ]
+    },
+    {
+      "id": 9,
+      "type": "MschA2V_ShotAssembler",
+      "pos": [
+        3240,
+        100
+      ],
+      "size": [
+        350,
+        460
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "latents",
+          "type": "MSCHA2V_LATENTS",
+          "link": 9
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 10
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": [
+            11
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MschA2V_ShotAssembler"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 10,
+      "type": "CreateVideo",
+      "pos": [
+        3640,
+        100
+      ],
+      "size": [
+        350,
+        460
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 11
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 12
+        }
+      ],
+      "outputs": [
+        {
+          "name": "VIDEO",
+          "type": "VIDEO",
+          "links": [
+            13
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CreateVideo"
+      },
+      "widgets_values": [
+        24
+      ]
+    },
+    {
+      "id": 11,
+      "type": "SaveVideo",
+      "pos": [
+        4040,
+        100
+      ],
+      "size": [
+        350,
+        460
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "link": 13
+        }
+      ],
+      "outputs": [
+        {
+          "name": "VIDEO",
+          "type": "VIDEO",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SaveVideo"
+      },
+      "widgets_values": [
+        "video/msch-demo",
+        "auto",
+        "auto"
+      ]
+    },
+    {
+      "id": 12,
+      "type": "MschA2V_BeatPixelUpscaleKSampler",
+      "pos": [
+        4440,
+        100
+      ],
+      "size": [
+        350,
+        460
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 14
+        },
+        {
+          "name": "shot_plan",
+          "type": "MSCHA2V_SHOT_PLAN",
+          "link": 15
+        },
+        {
+          "name": "latent",
+          "type": "MSCHA2V_LATENTS",
+          "link": 16
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 17
+        }
+      ],
+      "outputs": [
+        {
+          "name": "latent",
+          "type": "MSCHA2V_LATENTS",
+          "links": [
+            18
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MschA2V_BeatPixelUpscaleKSampler"
+      },
+      "widgets_values": [
+        1024,
+        "lanczos",
+        4,
+        1.0,
+        0.75,
+        42,
+        "dual_clock_euler",
+        "native_flow"
+      ]
+    },
+    {
+      "id": 13,
+      "type": "MschA2V_ShotAssembler",
+      "pos": [
+        4840,
+        100
+      ],
+      "size": [
+        350,
+        460
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "latents",
+          "type": "MSCHA2V_LATENTS",
+          "link": 18
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 19
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": [
+            20
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MschA2V_ShotAssembler"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 14,
+      "type": "CreateVideo",
+      "pos": [
+        5240,
+        100
+      ],
+      "size": [
+        350,
+        460
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 20
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 21
+        }
+      ],
+      "outputs": [
+        {
+          "name": "VIDEO",
+          "type": "VIDEO",
+          "links": [
+            22
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CreateVideo"
+      },
+      "widgets_values": [
+        24
+      ]
+    },
+    {
+      "id": 15,
+      "type": "SaveVideo",
+      "pos": [
+        5640,
+        100
+      ],
+      "size": [
+        350,
+        460
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "link": 22
+        }
+      ],
+      "outputs": [
+        {
+          "name": "VIDEO",
+          "type": "VIDEO",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SaveVideo"
+      },
+      "widgets_values": [
+        "video/msch-demo",
+        "auto",
+        "auto"
+      ]
+    }
+  ],
+  "links": [
+    [
+      1,
+      1,
+      0,
+      2,
+      0,
+      "MODEL"
+    ],
+    [
+      2,
+      6,
+      0,
+      7,
+      0,
+      "MSCHA2V_SCHEDULE"
+    ],
+    [
+      3,
+      3,
+      0,
+      7,
+      1,
+      "CLIP"
+    ],
+    [
+      4,
+      4,
+      0,
+      7,
+      2,
+      "VAE"
+    ],
+    [
+      5,
+      5,
+      0,
+      7,
+      3,
+      "VAE"
+    ],
+    [
+      6,
+      6,
+      2,
+      7,
+      4,
+      "AUDIO"
+    ],
+    [
+      7,
+      2,
+      0,
+      8,
+      0,
+      "MODEL"
+    ],
+    [
+      8,
+      7,
+      0,
+      8,
+      1,
+      "MSCHA2V_SHOT_PLAN"
+    ],
+    [
+      9,
+      8,
+      0,
+      9,
+      0,
+      "MSCHA2V_LATENTS"
+    ],
+    [
+      10,
+      4,
+      0,
+      9,
+      1,
+      "VAE"
+    ],
+    [
+      11,
+      9,
+      0,
+      10,
+      0,
+      "IMAGE"
+    ],
+    [
+      12,
+      6,
+      2,
+      10,
+      1,
+      "AUDIO"
+    ],
+    [
+      13,
+      10,
+      0,
+      11,
+      0,
+      "VIDEO"
+    ],
+    [
+      14,
+      2,
+      0,
+      12,
+      0,
+      "MODEL"
+    ],
+    [
+      15,
+      7,
+      0,
+      12,
+      1,
+      "MSCHA2V_SHOT_PLAN"
+    ],
+    [
+      16,
+      8,
+      0,
+      12,
+      2,
+      "MSCHA2V_LATENTS"
+    ],
+    [
+      17,
+      4,
+      0,
+      12,
+      3,
+      "VAE"
+    ],
+    [
+      18,
+      12,
+      0,
+      13,
+      0,
+      "MSCHA2V_LATENTS"
+    ],
+    [
+      19,
+      4,
+      0,
+      13,
+      1,
+      "VAE"
+    ],
+    [
+      20,
+      13,
+      0,
+      14,
+      0,
+      "IMAGE"
+    ],
+    [
+      21,
+      6,
+      2,
+      14,
+      1,
+      "AUDIO"
+    ],
+    [
+      22,
+      14,
+      0,
+      15,
+      0,
+      "VIDEO"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.7,
+      "offset": [
+        20,
+        40
+      ]
+    }
+  },
+  "version": 0.4
+}

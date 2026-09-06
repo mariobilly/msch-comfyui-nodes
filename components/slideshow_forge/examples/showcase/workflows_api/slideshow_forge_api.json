@@ -1,0 +1,85 @@
+{
+  "1": {
+    "class_type": "VHS_LoadImagesPath",
+    "inputs": {
+      "directory": "INPUT_ROOT/msch_showcase/slideshow_b",
+      "image_load_cap": 0,
+      "skip_first_images": 0,
+      "select_every_nth": 1
+    }
+  },
+  "2": {
+    "class_type": "LoadAudio",
+    "inputs": {
+      "audio": "msch_song_12s.mp3"
+    }
+  },
+  "3": {
+    "class_type": "SlideshowForge_Director",
+    "inputs": {
+      "images": [
+        "1",
+        0
+      ],
+      "preset": "dynamic_wipes",
+      "duration_mode": "beat_sync",
+      "total_duration": 14.0,
+      "per_image_duration": 1.2,
+      "fps": 30,
+      "seed": 21,
+      "audio": [
+        "2",
+        0
+      ],
+      "beats_per_image": 2,
+      "timeline_json_in": "",
+      "on_invalid_json": "error",
+      "shuffle_order": true,
+      "loop": false,
+      "canvas_fit": "cover",
+      "output_width": 1280,
+      "output_height": 720
+    }
+  },
+  "4": {
+    "class_type": "SlideshowForge_GPURenderer",
+    "inputs": {
+      "images": [
+        "1",
+        0
+      ],
+      "timeline_json": [
+        "3",
+        0
+      ],
+      "fps": 30,
+      "render_chunk_frames": 64,
+      "precision": "fp16",
+      "device": "auto",
+      "max_output_bytes_gb": 8.0
+    }
+  },
+  "5": {
+    "class_type": "VHS_VideoCombine",
+    "inputs": {
+      "images": [
+        "4",
+        0
+      ],
+      "frame_rate": 30,
+      "loop_count": 0,
+      "filename_prefix": "msch_showcase/09_slideshow_forge/dynamic_wipes_beat_sync",
+      "format": "video/h264-mp4",
+      "pix_fmt": "yuv420p",
+      "crf": 17,
+      "save_metadata": true,
+      "trim_to_audio": false,
+      "pingpong": false,
+      "save_output": true,
+      "audio": [
+        "3",
+        2
+      ]
+    }
+  }
+}

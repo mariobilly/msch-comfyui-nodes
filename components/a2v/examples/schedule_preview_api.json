@@ -1,0 +1,20 @@
+{
+  "1": {
+    "class_type": "MschA2V_BeatPromptSequencer",
+    "inputs": {
+      "audio_path": "beat.wav",
+      "schedule_json": "{\"version\": 1, \"fps\": 24, \"total_frames\": 48, \"audio_path\": \"beat.wav\", \"beat_map\": {\"duration_sec\": 2.0, \"sr\": 24000, \"bpm\": 120.0, \"beats_sec\": [0.0, 0.5, 1.0, 1.5], \"onsets_sec\": [0.0, 0.5, 1.0, 1.5], \"downbeats_sec\": [], \"analysis_source\": \"full\", \"offset_ms\": 0}, \"grid\": \"every_beat\", \"curve\": \"linear\", \"blocks\": [{\"id\": \"shot-1\", \"prompt\": \"A colorful geometric sculpture rotating under soft studio lighting.\", \"negative\": \"blurry, low quality\", \"start_beat\": 0, \"end_beat\": 4, \"start_frame\": 0, \"end_frame\": 0, \"fade_in_frames\": 0, \"fade_out_frames\": 0, \"crossfade_frames\": 0, \"group_id\": null, \"seed\": null, \"ref_image_slot\": null, \"ref_audio_slot\": null}], \"master_seed\": 42}",
+      "audio_start_seconds": -1.0,
+      "audio_duration_seconds": -1.0
+    }
+  },
+  "2": {
+    "class_type": "MschA2V_PreviewAudio",
+    "inputs": {
+      "audio": [
+        "1",
+        2
+      ]
+    }
+  }
+}

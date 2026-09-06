@@ -1,0 +1,209 @@
+{
+  "1": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "MiniMax_H3_FL2VA_pruned_int8_convrot.safetensors",
+      "weight_dtype": "default"
+    }
+  },
+  "2": {
+    "class_type": "LoraLoaderModelOnly",
+    "inputs": {
+      "lora_name": "minimax_h3_fl2va_4step_lora.safetensors",
+      "strength_model": 1.0,
+      "model": [
+        "1",
+        0
+      ]
+    }
+  },
+  "3": {
+    "class_type": "CLIPLoader",
+    "inputs": {
+      "clip_name": "SELECT_H3_TEXT_ENCODER.safetensors",
+      "type": "minimax",
+      "device": "default"
+    }
+  },
+  "4": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "SELECT_H3_VIDEO_VAE.safetensors"
+    }
+  },
+  "5": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "SELECT_H3_AUDIO_VAE.safetensors"
+    }
+  },
+  "6": {
+    "class_type": "MschA2V_BeatPromptSequencer",
+    "inputs": {
+      "audio_path": "beat.wav",
+      "schedule_json": "{\"version\": 1, \"fps\": 24, \"total_frames\": 48, \"audio_path\": \"beat.wav\", \"beat_map\": {\"duration_sec\": 2.0, \"sr\": 24000, \"bpm\": 120.0, \"beats_sec\": [0.0, 0.5, 1.0, 1.5], \"onsets_sec\": [0.0, 0.5, 1.0, 1.5], \"downbeats_sec\": [], \"analysis_source\": \"full\", \"offset_ms\": 0}, \"grid\": \"every_beat\", \"curve\": \"linear\", \"blocks\": [{\"id\": \"shot-1\", \"prompt\": \"A colorful geometric sculpture rotating under soft studio lighting.\", \"negative\": \"blurry, low quality\", \"start_beat\": 0, \"end_beat\": 4, \"start_frame\": 0, \"end_frame\": 0, \"fade_in_frames\": 0, \"fade_out_frames\": 0, \"crossfade_frames\": 0, \"group_id\": null, \"seed\": null, \"ref_image_slot\": null, \"ref_audio_slot\": null}], \"master_seed\": 42}",
+      "audio_start_seconds": -1.0,
+      "audio_duration_seconds": -1.0
+    }
+  },
+  "7": {
+    "class_type": "MschA2V_ShotPlanner",
+    "inputs": {
+      "master_seed": 42,
+      "width": 512,
+      "height": 512,
+      "fps_override": 0,
+      "audio_mode": "lock_source",
+      "task_type": "auto",
+      "add_source_as_reference": true,
+      "ref_image_size": "match",
+      "negative_fallback": "",
+      "prompt_schedule": [
+        "6",
+        0
+      ],
+      "clip": [
+        "3",
+        0
+      ],
+      "vae": [
+        "4",
+        0
+      ],
+      "audio_vae": [
+        "5",
+        0
+      ],
+      "timeline_audio": [
+        "6",
+        2
+      ]
+    }
+  },
+  "8": {
+    "class_type": "MschA2V_BeatKSampler",
+    "inputs": {
+      "steps": 4,
+      "shift_video": 12.0,
+      "shift_audio": 3.0,
+      "sampler_name": "dual_clock_euler",
+      "scheduler": "native_flow",
+      "cfg": 1.0,
+      "denoise": 1.0,
+      "seed": 42,
+      "model": [
+        "2",
+        0
+      ],
+      "shot_plan": [
+        "7",
+        0
+      ]
+    }
+  },
+  "9": {
+    "class_type": "MschA2V_ShotAssembler",
+    "inputs": {
+      "latents": [
+        "8",
+        0
+      ],
+      "vae": [
+        "4",
+        0
+      ]
+    }
+  },
+  "10": {
+    "class_type": "CreateVideo",
+    "inputs": {
+      "fps": 24,
+      "images": [
+        "9",
+        0
+      ],
+      "audio": [
+        "6",
+        2
+      ]
+    }
+  },
+  "11": {
+    "class_type": "SaveVideo",
+    "inputs": {
+      "filename_prefix": "video/msch-demo",
+      "format": "auto",
+      "video": [
+        "10",
+        0
+      ]
+    }
+  },
+  "12": {
+    "class_type": "MschA2V_BeatPixelUpscaleKSampler",
+    "inputs": {
+      "target_long_side": 1024,
+      "upscale_method": "lanczos",
+      "steps": 4,
+      "cfg": 1.0,
+      "denoise": 0.75,
+      "seed": 42,
+      "sampler_name": "dual_clock_euler",
+      "scheduler": "native_flow",
+      "model": [
+        "2",
+        0
+      ],
+      "shot_plan": [
+        "7",
+        0
+      ],
+      "latent": [
+        "8",
+        0
+      ],
+      "vae": [
+        "4",
+        0
+      ]
+    }
+  },
+  "13": {
+    "class_type": "MschA2V_ShotAssembler",
+    "inputs": {
+      "latents": [
+        "12",
+        0
+      ],
+      "vae": [
+        "4",
+        0
+      ]
+    }
+  },
+  "14": {
+    "class_type": "CreateVideo",
+    "inputs": {
+      "fps": 24,
+      "images": [
+        "13",
+        0
+      ],
+      "audio": [
+        "6",
+        2
+      ]
+    }
+  },
+  "15": {
+    "class_type": "SaveVideo",
+    "inputs": {
+      "filename_prefix": "video/msch-demo",
+      "format": "auto",
+      "video": [
+        "14",
+        0
+      ]
+    }
+  }
+}

@@ -1,0 +1,3 @@
+{
+  "PointillismEffect": "Scatter image-color-sampled dots across a paper-like background. Density, radius, distribution and darkness response determine the dot field; ink bleed, distortion, grain and tonal controls shape the print appearance. A still can become an animation through seeded re-scattering, frame holds and frame drops. Returns native VIDEO, the same IMAGE frames and dot-coverage MASK; optional AUDIO accompanies the video."
+}

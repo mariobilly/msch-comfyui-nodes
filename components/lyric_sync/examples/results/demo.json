@@ -1,0 +1,10 @@
+{
+  "node_execution": true,
+  "note": "Actual mosaic output using evenly distributed fallback timing; no vocal alignment or WhisperX model was used.",
+  "frames": 24,
+  "width": 384,
+  "height": 256,
+  "fps": 12,
+  "input": "../inputs/demo.png or demo.mp4",
+  "settings": {}
+}

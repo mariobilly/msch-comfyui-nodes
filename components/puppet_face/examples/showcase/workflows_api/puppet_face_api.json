@@ -1,0 +1,84 @@
+{
+  "1": {
+    "class_type": "PuppetFaceLoadVideo",
+    "inputs": {
+      "video": "msch_face.mp4",
+      "frame_load_cap": 0,
+      "select_every_nth": 1,
+      "max_side": 0,
+      "path_override": ""
+    }
+  },
+  "2": {
+    "class_type": "PuppetFaceOverlay",
+    "inputs": {
+      "show_dots": true,
+      "dot_set": "all",
+      "dot_radius": 2,
+      "dot_color": "#FFFFFF",
+      "dot_opacity": 0.85,
+      "show_mesh": true,
+      "mesh_opacity": 0.3,
+      "cursor_mode": "track_landmark",
+      "cursor_scale": 1.8,
+      "cursor_landmark": 14,
+      "grab_ring": true,
+      "cursor_target": "mouth",
+      "sweep_start_x": 0.15,
+      "sweep_start_y": 0.85,
+      "sweep_end_x": 0.5,
+      "sweep_end_y": 0.55,
+      "images": [
+        "1",
+        0
+      ]
+    }
+  },
+  "3": {
+    "class_type": "PuppetFaceSaveVideo",
+    "inputs": {
+      "images": [
+        "2",
+        0
+      ],
+      "fps": 24.0,
+      "filename_prefix": "msch_showcase/08_puppet_face/mesh_track_mouth"
+    }
+  },
+  "4": {
+    "class_type": "PuppetFaceOverlay",
+    "inputs": {
+      "show_dots": true,
+      "dot_set": "contours",
+      "dot_radius": 2,
+      "dot_color": "#C6FF00",
+      "dot_opacity": 0.85,
+      "show_mesh": false,
+      "mesh_opacity": 0.25,
+      "cursor_mode": "sweep",
+      "cursor_scale": 2.0,
+      "cursor_landmark": 14,
+      "grab_ring": true,
+      "cursor_target": "nose",
+      "sweep_start_x": 0.1,
+      "sweep_start_y": 0.9,
+      "sweep_end_x": 0.55,
+      "sweep_end_y": 0.45,
+      "images": [
+        "1",
+        0
+      ]
+    }
+  },
+  "5": {
+    "class_type": "PuppetFaceSaveVideo",
+    "inputs": {
+      "images": [
+        "4",
+        0
+      ],
+      "fps": 24.0,
+      "filename_prefix": "msch_showcase/08_puppet_face/contours_sweep_cursor"
+    }
+  }
+}

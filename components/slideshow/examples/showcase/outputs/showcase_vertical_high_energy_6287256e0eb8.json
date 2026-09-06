@@ -1,0 +1,126 @@
+{
+  "settings": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "bpm": 128.0,
+    "beats_per_image": 2.0,
+    "seconds_per_image": 2.0,
+    "timing": "BPM",
+    "pacing": "Dynamic",
+    "layout": "Art directed mix",
+    "framing": "Smart fit",
+    "transition": "Mixed",
+    "transition_seconds": 0.28,
+    "intensity": 0.85,
+    "motion_blur": 3,
+    "grain": 0.08,
+    "accent": "#DFFF40",
+    "graphics": true,
+    "font_path": "",
+    "seed": 3,
+    "show_counter": true,
+    "show_progress": true,
+    "show_headlines": true
+  },
+  "quality": "High",
+  "frame_count": 295,
+  "duration_seconds": 9.833333333333334,
+  "image_order": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+  ],
+  "headlines": [
+    "A haunting cinematic wide shot",
+    "One is spectacle",
+    "A room moves over a landscape",
+    "Inside the dream",
+    "It takes large murder",
+    "The diamonds shone like broken glass",
+    "The candle-forests of Notre Dame",
+    "Motel Money Murder Madness",
+    "The barn is burning",
+    "A kiss in the storm",
+    "Some wild fires",
+    "An explosion of birds",
+    "Santa Anas are winds off deserts",
+    "June 30th. On the sun roof"
+  ],
+  "shot_start_frames": [
+    0,
+    28,
+    42,
+    70,
+    84,
+    112,
+    127,
+    141,
+    169,
+    197,
+    211,
+    239,
+    253,
+    281
+  ],
+  "shot_plan": null,
+  "framing_data": null,
+  "headline_layers": [],
+  "prompt": {
+    "1": {
+      "class_type": "marioslideshow",
+      "inputs": {
+        "image_folder": "E:/ComfyUI_windows_portable/ComfyUI/input/msch_showcase/slideshow_a",
+        "width": 1080,
+        "height": 1920,
+        "fps": 30,
+        "timing": "BPM",
+        "bpm": 128.0,
+        "beats_per_image": 2.0,
+        "seconds_per_image": 2.0,
+        "pacing": "Dynamic",
+        "layout": "Art directed mix",
+        "framing": "Smart fit",
+        "transition": "Mixed",
+        "transition_seconds": 0.28,
+        "intensity": 0.85,
+        "motion_blur": "Standard (3 samples)",
+        "grain": 0.08,
+        "accent": "#DFFF40",
+        "graphics": true,
+        "headlines": "A haunting cinematic wide shot\nOne is spectacle\nA room moves over a landscape\nInside the dream\nIt takes large murder\nThe diamonds shone like broken glass\nThe candle-forests of Notre Dame\nMotel Money Murder Madness\nThe barn is burning\nA kiss in the storm\nSome wild fires\nAn explosion of birds\nSanta Anas are winds off deserts\nJune 30th. On the sun roof",
+        "font_path": "",
+        "audio_file": "E:/ComfyUI_windows_portable/ComfyUI/input/msch_song_40s.mp3",
+        "quality": "High",
+        "shuffle": false,
+        "seed": 3,
+        "filename_prefix": "showcase_vertical_high_energy"
+      },
+      "is_changed": [
+        "58326c8142adeac54edf269152ab603501447781f66ee410faeb08e5ba9cd8ca"
+      ]
+    },
+    "2": {
+      "class_type": "SaveImage",
+      "inputs": {
+        "images": [
+          "1",
+          2
+        ],
+        "filename_prefix": "msch_showcase/10_marioslideshow/vertical_poster"
+      }
+    }
+  },
+  "workflow": null
+}

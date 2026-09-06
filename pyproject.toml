@@ -1,0 +1,22 @@
+[project]
+name = "msch-comfyui-nodes"
+version = "0.1.0"
+description = "MSCH Nodes: one install for 35 creative nodes covering video effects, slideshows, typography, lyric sync and MiniMax H3 sequencing, plus theme and editor bridge."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+dependencies = ["numpy>=1.24", "Pillow>=10.1", "torch", "av", "opencv-python", "aiohttp", "imageio-ffmpeg>=0.5.1", "soundfile>=0.12", "librosa>=0.10.2", "scipy", "kornia", "arabic-reshaper>=3.0.0", "python-bidi>=0.4.2"]
+
+[project.urls]
+Repository = "https://github.com/mariobilly/msch-comfyui-nodes"
+Documentation = "https://github.com/mariobilly/msch-comfyui-nodes/blob/main/docs/NODES.md"
+"Bug Tracker" = "https://github.com/mariobilly/msch-comfyui-nodes/issues"
+
+[tool.comfy]
+PublisherId = "mariobilly"
+DisplayName = "MSCH Nodes"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["components/a2v"]
+addopts = ["--import-mode=importlib"]

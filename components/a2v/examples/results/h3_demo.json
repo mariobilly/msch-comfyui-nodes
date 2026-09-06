@@ -1,0 +1,15 @@
+{
+  "status": "Completed through ComfyUI, including model sampling, VAE decoding and Save Video.",
+  "frames": 48,
+  "width": 256,
+  "height": 256,
+  "fps": 24.0,
+  "duration_seconds": 2.0,
+  "steps": 4,
+  "seed": 42,
+  "gpu": "NVIDIA GeForce RTX 4070 SUPER (12 GB)",
+  "python": "3.12.10",
+  "pytorch": "2.10.0+cu128",
+  "comfyui": "0.34.3",
+  "note": "Small memory-conscious generation example. H3 uses its minimum 124-frame sampling bucket and A2V trims the assembled output to the 48-frame schedule. Pixel-upscale refinement was not run."
+}

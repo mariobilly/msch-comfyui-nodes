@@ -1,0 +1,24 @@
+{
+  "last_node_id": 4,
+  "last_link_id": 3,
+  "nodes": [
+    {"id": 1, "type": "LoadImage", "pos": [60, 200], "size": [315, 314], "flags": {}, "order": 0, "mode": 0,
+     "outputs": [{"name": "IMAGE", "type": "IMAGE", "links": [1]}, {"name": "MASK", "type": "MASK", "links": null}],
+     "properties": {"Node name for S&R": "LoadImage"}, "widgets_values": ["example.png", "image"]},
+    {"id": 2, "type": "SynkitMetablob", "pos": [440, 200], "size": [340, 520], "flags": {}, "order": 1, "mode": 0,
+     "inputs": [{"name": "image", "type": "IMAGE", "link": 1}, {"name": "mask", "type": "MASK", "link": null}],
+     "outputs": [{"name": "video", "type": "VIDEO", "links": null}, {"name": "frames", "type": "IMAGE", "links": [2]}, {"name": "blob_mask", "type": "MASK", "links": null}],
+     "properties": {"Node name for S&R": "SynkitMetablob"},
+     "widgets_values": [48, 24.0, 12, "dark", 0.45, 1.3, 0.8, 2.0, 0.5, "#C6FF00", 1.0, "original", "square", "breathe+drift", 1.0, 0.35, 0, "fixed"]},
+    {"id": 3, "type": "SynkitTracker", "pos": [840, 200], "size": [340, 720], "flags": {}, "order": 2, "mode": 0,
+     "inputs": [{"name": "image", "type": "IMAGE", "link": 2}, {"name": "mask", "type": "MASK", "link": null}],
+     "outputs": [{"name": "video", "type": "VIDEO", "links": [3]}, {"name": "frames", "type": "IMAGE", "links": null}, {"name": "overlay_mask", "type": "MASK", "links": null}],
+     "properties": {"Node name for S&R": "SynkitTracker"},
+     "widgets_values": [48, 24.0, 14, "corners", 80, 50, 180, 0.3, 1, "palette", "#C6FF00", "neon", true, "index+coords", 1.0, 0.4, 8, "random", 1.0, "original", "hop+jitter", 12, 2.0, 0.1, 6, 3, "fixed"]},
+    {"id": 4, "type": "SaveVideo", "pos": [1240, 200], "size": [400, 300], "flags": {}, "order": 3, "mode": 0,
+     "inputs": [{"name": "video", "type": "VIDEO", "link": 3}],
+     "properties": {"Node name for S&R": "SaveVideo"}, "widgets_values": ["video/SynkitFX", "auto", "auto"]}
+  ],
+  "links": [[1, 1, 0, 2, 0, "IMAGE"], [2, 2, 1, 3, 0, "IMAGE"], [3, 3, 0, 4, 0, "VIDEO"]],
+  "groups": [], "config": {}, "extra": {}, "version": 0.4
+}

@@ -1,0 +1,68 @@
+{
+  "1": {
+    "class_type": "LoadVideo",
+    "inputs": {
+      "file": "demo.mp4"
+    }
+  },
+  "2": {
+    "class_type": "GetVideoComponents",
+    "inputs": {
+      "video": [
+        "1",
+        0
+      ]
+    }
+  },
+  "3": {
+    "class_type": "CodeMatrixASCII",
+    "inputs": {
+      "char_set": "ascii_dense",
+      "char_pick": "by_brightness",
+      "custom_chars": "01",
+      "columns": 64,
+      "color_mode": "green",
+      "custom_color": "#33FF66",
+      "background": "#000000",
+      "gamma": 1.0,
+      "contrast": 1.0,
+      "invert": false,
+      "threshold": 0.12,
+      "flicker": 0.0,
+      "bold": false,
+      "seed": 0,
+      "images": [
+        "2",
+        0
+      ]
+    }
+  },
+  "4": {
+    "class_type": "CreateVideo",
+    "inputs": {
+      "fps": [
+        "2",
+        2
+      ],
+      "images": [
+        "3",
+        0
+      ],
+      "audio": [
+        "2",
+        1
+      ]
+    }
+  },
+  "5": {
+    "class_type": "SaveVideo",
+    "inputs": {
+      "filename_prefix": "video/msch-demo",
+      "format": "auto",
+      "video": [
+        "4",
+        0
+      ]
+    }
+  }
+}

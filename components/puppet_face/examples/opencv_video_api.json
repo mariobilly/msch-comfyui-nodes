@@ -1,0 +1,51 @@
+{
+  "1": {
+    "class_type": "PuppetFaceLoadVideo",
+    "inputs": {
+      "video": "demo.mp4",
+      "frame_load_cap": 24,
+      "select_every_nth": 1,
+      "max_side": 0,
+      "path_override": ""
+    }
+  },
+  "2": {
+    "class_type": "PuppetFaceOverlay",
+    "inputs": {
+      "show_dots": true,
+      "dot_set": "key",
+      "dot_radius": 2,
+      "dot_color": "#FFFFFF",
+      "dot_opacity": 0.85,
+      "show_mesh": false,
+      "mesh_opacity": 0.25,
+      "cursor_mode": "track_landmark",
+      "cursor_scale": 1.6,
+      "cursor_landmark": 14,
+      "grab_ring": true,
+      "cursor_target": "nose",
+      "sweep_start_x": 0.15,
+      "sweep_start_y": 0.85,
+      "sweep_end_x": 0.5,
+      "sweep_end_y": 0.55,
+      "images": [
+        "1",
+        0
+      ]
+    }
+  },
+  "3": {
+    "class_type": "PuppetFaceSaveVideo",
+    "inputs": {
+      "filename_prefix": "PuppetFace",
+      "images": [
+        "2",
+        0
+      ],
+      "fps": [
+        "1",
+        1
+      ]
+    }
+  }
+}

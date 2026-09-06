@@ -1,0 +1,278 @@
+{
+  "1": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "msch_showcase/stills/silhouette.jpg"
+    }
+  },
+  "2": {
+    "class_type": "ScanFX",
+    "inputs": {
+      "image": [
+        "1",
+        0
+      ],
+      "mix": 1.0,
+      "mask_feather": 4.0,
+      "invert_mask": false,
+      "animation_speed": 1.0,
+      "seed": 0,
+      "effect_1": "thermal",
+      "strength_1": 1.0,
+      "effect_2": "hud",
+      "strength_2": 0.6,
+      "effect_3": "none",
+      "strength_3": 1.0,
+      "effect_4": "none",
+      "strength_4": 1.0,
+      "effect_5": "none",
+      "strength_5": 1.0,
+      "effect_6": "none",
+      "strength_6": 1.0,
+      "effect_7": "none",
+      "strength_7": 1.0,
+      "effect_8": "none",
+      "strength_8": 1.0
+    }
+  },
+  "3": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "2",
+        0
+      ],
+      "filename_prefix": "msch_showcase/04_scanfx/thermal_hud"
+    }
+  },
+  "4": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "msch_showcase/stills/car_interior.jpg"
+    }
+  },
+  "5": {
+    "class_type": "ScanFX",
+    "inputs": {
+      "image": [
+        "4",
+        0
+      ],
+      "mix": 1.0,
+      "mask_feather": 4.0,
+      "invert_mask": false,
+      "animation_speed": 1.0,
+      "seed": 0,
+      "effect_1": "nightvision",
+      "strength_1": 1.0,
+      "effect_2": "holo_sweep",
+      "strength_2": 0.5,
+      "effect_3": "hud",
+      "strength_3": 0.8,
+      "effect_4": "none",
+      "strength_4": 1.0,
+      "effect_5": "none",
+      "strength_5": 1.0,
+      "effect_6": "none",
+      "strength_6": 1.0,
+      "effect_7": "none",
+      "strength_7": 1.0,
+      "effect_8": "none",
+      "strength_8": 1.0
+    }
+  },
+  "6": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "5",
+        0
+      ],
+      "filename_prefix": "msch_showcase/04_scanfx/nightvision_hud"
+    }
+  },
+  "7": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "msch_showcase/stills/city_blur.jpg"
+    }
+  },
+  "8": {
+    "class_type": "ScanFX",
+    "inputs": {
+      "image": [
+        "7",
+        0
+      ],
+      "mix": 1.0,
+      "mask_feather": 4.0,
+      "invert_mask": false,
+      "animation_speed": 1.0,
+      "seed": 0,
+      "effect_1": "xray",
+      "strength_1": 0.9,
+      "effect_2": "chroma",
+      "strength_2": 0.5,
+      "effect_3": "glitch",
+      "strength_3": 0.35,
+      "effect_4": "none",
+      "strength_4": 1.0,
+      "effect_5": "none",
+      "strength_5": 1.0,
+      "effect_6": "none",
+      "strength_6": 1.0,
+      "effect_7": "none",
+      "strength_7": 1.0,
+      "effect_8": "none",
+      "strength_8": 1.0
+    }
+  },
+  "9": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "8",
+        0
+      ],
+      "filename_prefix": "msch_showcase/04_scanfx/xray_glitch"
+    }
+  },
+  "10": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "msch_showcase/stills/motel.jpg"
+    }
+  },
+  "11": {
+    "class_type": "ScanFX",
+    "inputs": {
+      "image": [
+        "10",
+        0
+      ],
+      "mix": 1.0,
+      "mask_feather": 4.0,
+      "invert_mask": false,
+      "animation_speed": 1.0,
+      "seed": 0,
+      "effect_1": "lidar",
+      "strength_1": 1.0,
+      "effect_2": "wireframe",
+      "strength_2": 0.5,
+      "effect_3": "sonar",
+      "strength_3": 0.6,
+      "effect_4": "none",
+      "strength_4": 1.0,
+      "effect_5": "none",
+      "strength_5": 1.0,
+      "effect_6": "none",
+      "strength_6": 1.0,
+      "effect_7": "none",
+      "strength_7": 1.0,
+      "effect_8": "none",
+      "strength_8": 1.0
+    }
+  },
+  "12": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "11",
+        0
+      ],
+      "filename_prefix": "msch_showcase/04_scanfx/lidar_sonar"
+    }
+  },
+  "13": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "msch_showcase/stills/diamonds_rain.jpg"
+    }
+  },
+  "14": {
+    "class_type": "ScanFX",
+    "inputs": {
+      "image": [
+        "13",
+        0
+      ],
+      "mix": 1.0,
+      "mask_feather": 4.0,
+      "invert_mask": false,
+      "animation_speed": 1.0,
+      "seed": 0,
+      "effect_1": "hologram",
+      "strength_1": 0.9,
+      "effect_2": "coderain",
+      "strength_2": 0.45,
+      "effect_3": "ekg",
+      "strength_3": 0.5,
+      "effect_4": "none",
+      "strength_4": 1.0,
+      "effect_5": "none",
+      "strength_5": 1.0,
+      "effect_6": "none",
+      "strength_6": 1.0,
+      "effect_7": "none",
+      "strength_7": 1.0,
+      "effect_8": "none",
+      "strength_8": 1.0
+    }
+  },
+  "15": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "14",
+        0
+      ],
+      "filename_prefix": "msch_showcase/04_scanfx/hologram_coderain"
+    }
+  },
+  "16": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "msch_showcase/stills/spectator_dying.jpg"
+    }
+  },
+  "17": {
+    "class_type": "ScanFX",
+    "inputs": {
+      "image": [
+        "16",
+        0
+      ],
+      "mix": 1.0,
+      "mask_feather": 4.0,
+      "invert_mask": false,
+      "animation_speed": 1.0,
+      "seed": 0,
+      "effect_1": "falsecolor",
+      "strength_1": 1.0,
+      "effect_2": "hud",
+      "strength_2": 0.7,
+      "effect_3": "none",
+      "strength_3": 1.0,
+      "effect_4": "none",
+      "strength_4": 1.0,
+      "effect_5": "none",
+      "strength_5": 1.0,
+      "effect_6": "none",
+      "strength_6": 1.0,
+      "effect_7": "none",
+      "strength_7": 1.0,
+      "effect_8": "none",
+      "strength_8": 1.0
+    }
+  },
+  "18": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "17",
+        0
+      ],
+      "filename_prefix": "msch_showcase/04_scanfx/falsecolor"
+    }
+  }
+}

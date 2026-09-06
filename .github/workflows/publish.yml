@@ -1,0 +1,36 @@
+name: Publish to Comfy Registry
+on:
+  workflow_dispatch:
+  release:
+    types: [published]
+permissions:
+  contents: read
+concurrency:
+  group: comfy-registry-publish
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: '3.11'
+      - run: python scripts/check_release.py
+      - name: Check publisher configuration
+        env:
+          REGISTRY_ACCESS_TOKEN: ${{ secrets.REGISTRY_ACCESS_TOKEN }}
+        run: |
+          python - <<'PY'
+          import os, tomllib
+          from pathlib import Path
+          config = tomllib.loads(Path('pyproject.toml').read_text())
+          if not config['tool']['comfy']['PublisherId'].strip():
+              raise SystemExit('Set PublisherId in pyproject.toml to your Comfy Registry publisher ID.')
+          if not os.environ.get('REGISTRY_ACCESS_TOKEN'):
+              raise SystemExit('Add the REGISTRY_ACCESS_TOKEN repository secret from your Comfy Registry publisher.')
+          PY
+      - name: Publish version
+        uses: Comfy-Org/publish-node-action@d2366e7abb6ab16f3bb03e3520ae25c8cf749bc9
+        with:
+          personal_access_token: ${{ secrets.REGISTRY_ACCESS_TOKEN }}

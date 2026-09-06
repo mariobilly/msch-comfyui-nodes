@@ -1,0 +1,4 @@
+{
+  "SynkitMetablob": "Build a square or hexagonal grid whose dot sizes respond to luminance, saturation or edges, then merge neighboring dots into metaball shapes. Threshold, radius, merge and softness tune the field. Pulse, breathing, drift and flicker animate it over a still or frame batch. Outputs VIDEO, processed IMAGE frames and overlay MASK.",
+  "SynkitTracker": "Detect graphic feature points and place animated boxes, corner brackets, labels and connecting wires over the image. Control point count, separation, box sizes, palette and label style; hopping, jitter, flicker and rewiring change the overlay over time. These are visual feature tracks, not recognized objects. Outputs VIDEO, IMAGE frames and an overlay MASK."
+}

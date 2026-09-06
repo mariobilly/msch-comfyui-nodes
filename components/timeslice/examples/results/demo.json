@@ -1,0 +1,16 @@
+{
+  "node_execution": true,
+  "note": "Actual node output rendered from the included original geometric demo input.",
+  "frames": 24,
+  "width": 384,
+  "height": 256,
+  "fps": 12,
+  "input": "../inputs/demo.png or demo.mp4",
+  "settings": {
+    "span_frames": 16,
+    "band_px": 8,
+    "chroma_spread": 3,
+    "tint_mode": "neon",
+    "tint_strength": 0.2
+  }
+}

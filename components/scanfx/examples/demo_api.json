@@ -1,0 +1,75 @@
+{
+  "1": {
+    "class_type": "LoadVideo",
+    "inputs": {
+      "file": "demo.mp4"
+    }
+  },
+  "2": {
+    "class_type": "GetVideoComponents",
+    "inputs": {
+      "video": [
+        "1",
+        0
+      ]
+    }
+  },
+  "3": {
+    "class_type": "ScanFX",
+    "inputs": {
+      "mix": 1.0,
+      "mask_feather": 4.0,
+      "invert_mask": false,
+      "animation_speed": 1.0,
+      "seed": 0,
+      "effect_1": "thermal",
+      "strength_1": 1.0,
+      "effect_2": "hud",
+      "strength_2": 0.65,
+      "effect_3": "none",
+      "strength_3": 1.0,
+      "effect_4": "none",
+      "strength_4": 1.0,
+      "effect_5": "none",
+      "strength_5": 1.0,
+      "effect_6": "none",
+      "strength_6": 1.0,
+      "effect_7": "none",
+      "strength_7": 1.0,
+      "effect_8": "none",
+      "strength_8": 1.0,
+      "image": [
+        "2",
+        0
+      ]
+    }
+  },
+  "4": {
+    "class_type": "CreateVideo",
+    "inputs": {
+      "fps": [
+        "2",
+        2
+      ],
+      "images": [
+        "3",
+        0
+      ],
+      "audio": [
+        "2",
+        1
+      ]
+    }
+  },
+  "5": {
+    "class_type": "SaveVideo",
+    "inputs": {
+      "filename_prefix": "video/msch-demo",
+      "format": "auto",
+      "video": [
+        "4",
+        0
+      ]
+    }
+  }
+}

@@ -1,0 +1,4 @@
+{
+  "SlideshowForge_Director": "Turn an image batch into an editable timeline containing source indices, motion, duration and transition choices. Choose a style preset and total-duration, per-image or beat-sync timing. AUDIO is required for beat-sync mode. A supplied timeline_json_in can replace generation after validation. Returns timeline JSON, source image count and audio for the encoder.",
+  "SlideshowForge_GPURenderer": "Render the Director's timeline against the same source image batch using PyTorch/Kornia transforms and transitions. Reads canvas and segment settings from timeline_json and samples animation at the requested FPS. Outputs RGB IMAGE frames; connect them to Create Video or VideoHelperSuite. Rendering is procedural and requires no diffusion checkpoint."
+}

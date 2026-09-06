@@ -1,0 +1,126 @@
+{
+  "1": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "msch_showcase/stills/dancers.jpg"
+    }
+  },
+  "2": {
+    "class_type": "MschEdgeASCIIVideo",
+    "inputs": {
+      "cell_size": 24,
+      "color": "#FFFF00",
+      "opacity": 1.0,
+      "line_width": 2.4,
+      "line_length": 0.85,
+      "edge_threshold": 0.055,
+      "edge_coherence": 0.25,
+      "blur": 1.2,
+      "tone_gamma": 1.6,
+      "fill_amount": 0.5,
+      "invert_tones": false,
+      "background": "original",
+      "background_color": "#000000",
+      "image": [
+        "1",
+        0
+      ],
+      "fps": 24.0,
+      "duration_seconds": 4.0,
+      "animation": "flow",
+      "cycles": 2,
+      "animation_strength": 0.85,
+      "mode": "mixed"
+    }
+  },
+  "3": {
+    "class_type": "SaveVideo",
+    "inputs": {
+      "video": [
+        "2",
+        0
+      ],
+      "filename_prefix": "msch_showcase/02_edge_ascii/dancers_flow",
+      "format": "mp4",
+      "codec": "h264"
+    }
+  },
+  "4": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "msch_showcase/stills/rabbit.jpg"
+    }
+  },
+  "5": {
+    "class_type": "EdgeASCII",
+    "inputs": {
+      "cell_size": 20,
+      "color": "#FFFFFF",
+      "opacity": 1.0,
+      "line_width": 2.0,
+      "line_length": 0.85,
+      "edge_threshold": 0.055,
+      "edge_coherence": 0.25,
+      "blur": 1.2,
+      "tone_gamma": 1.6,
+      "fill_amount": 1.0,
+      "invert_tones": false,
+      "background": "solid",
+      "background_color": "#000000",
+      "image": [
+        "4",
+        0
+      ],
+      "mode": "full_ascii"
+    }
+  },
+  "6": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "5",
+        0
+      ],
+      "filename_prefix": "msch_showcase/02_edge_ascii/full_ascii_still"
+    }
+  },
+  "7": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "msch_showcase/stills/silhouette.jpg"
+    }
+  },
+  "8": {
+    "class_type": "EdgeASCII",
+    "inputs": {
+      "cell_size": 18,
+      "color": "#FF3355",
+      "opacity": 1.0,
+      "line_width": 2.0,
+      "line_length": 0.85,
+      "edge_threshold": 0.04,
+      "edge_coherence": 0.25,
+      "blur": 1.2,
+      "tone_gamma": 1.6,
+      "fill_amount": 0.5,
+      "invert_tones": false,
+      "background": "original",
+      "background_color": "#000000",
+      "image": [
+        "7",
+        0
+      ],
+      "mode": "edge_only"
+    }
+  },
+  "9": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "8",
+        0
+      ],
+      "filename_prefix": "msch_showcase/02_edge_ascii/edge_only_still"
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "1": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "demo.png"
+    }
+  },
+  "2": {
+    "class_type": "MschEdgeASCIIVideo",
+    "inputs": {
+      "fps": 12,
+      "duration_seconds": 2.0,
+      "animation": "flow",
+      "cycles": 1,
+      "animation_strength": 0.85,
+      "mode": "edge_only",
+      "cell_size": 16,
+      "color": "#FFFF00",
+      "opacity": 1.0,
+      "line_width": 1.6,
+      "line_length": 0.85,
+      "edge_threshold": 0.055,
+      "edge_coherence": 0.25,
+      "blur": 1.2,
+      "tone_gamma": 1.6,
+      "fill_amount": 0.5,
+      "invert_tones": false,
+      "background": "original",
+      "background_color": "#000000",
+      "image": [
+        "1",
+        0
+      ]
+    }
+  },
+  "3": {
+    "class_type": "SaveVideo",
+    "inputs": {
+      "filename_prefix": "video/msch-demo",
+      "format": "auto",
+      "video": [
+        "2",
+        0
+      ]
+    }
+  }
+}

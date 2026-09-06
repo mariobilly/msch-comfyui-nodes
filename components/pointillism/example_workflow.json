@@ -1,0 +1,61 @@
+{
+  "last_node_id": 3,
+  "last_link_id": 2,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "LoadImage",
+      "pos": [100, 200],
+      "size": [315, 314],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "outputs": [
+        {"name": "IMAGE", "type": "IMAGE", "links": [1]},
+        {"name": "MASK", "type": "MASK", "links": null}
+      ],
+      "properties": {"Node name for S&R": "LoadImage"},
+      "widgets_values": ["example.png", "image"]
+    },
+    {
+      "id": 2,
+      "type": "PointillismEffect",
+      "pos": [480, 200],
+      "size": [360, 680],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {"name": "image", "type": "IMAGE", "link": 1},
+        {"name": "audio", "type": "AUDIO", "link": null}
+      ],
+      "outputs": [
+        {"name": "video", "type": "VIDEO", "links": [2]},
+        {"name": "frames", "type": "IMAGE", "links": null},
+        {"name": "dots_mask", "type": "MASK", "links": null}
+      ],
+      "properties": {"Node name for S&R": "PointillismEffect"},
+      "widgets_values": [48, 24.0, 2, 0.0, 1.35, 1.15, 40.0, 2.5, 0.5, 0.0, 0.3, 0.05, 1.0, "random", "white", "#FFFFFF", 0.35, 3.5, 0.15, 0.12, 0, "fixed", true]
+    },
+    {
+      "id": 3,
+      "type": "SaveVideo",
+      "pos": [900, 200],
+      "size": [400, 450],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [{"name": "video", "type": "VIDEO", "link": 2}],
+      "properties": {"Node name for S&R": "SaveVideo"},
+      "widgets_values": ["video/pointillism", "mp4", "h264"]
+    }
+  ],
+  "links": [
+    [1, 1, 0, 2, 0, "IMAGE"],
+    [2, 2, 0, 3, 0, "VIDEO"]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {},
+  "version": 0.4
+}

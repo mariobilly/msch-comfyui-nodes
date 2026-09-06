@@ -1,0 +1,48 @@
+{
+  "1": {
+    "class_type": "LoadVideo",
+    "inputs": {
+      "file": "msch_robot.mp4"
+    }
+  },
+  "2": {
+    "class_type": "MschEdgeASCIIVideo",
+    "inputs": {
+      "cell_size": 12,
+      "color": "#00FFC8",
+      "opacity": 1.0,
+      "line_width": 1.8,
+      "line_length": 0.85,
+      "edge_threshold": 0.05,
+      "edge_coherence": 0.25,
+      "blur": 1.2,
+      "tone_gamma": 1.6,
+      "fill_amount": 0.5,
+      "invert_tones": false,
+      "background": "solid",
+      "background_color": "#05070A",
+      "video": [
+        "1",
+        0
+      ],
+      "fps": 24.0,
+      "duration_seconds": 4.0,
+      "animation": "pulse",
+      "cycles": 4,
+      "animation_strength": 0.5,
+      "mode": "edge_only"
+    }
+  },
+  "3": {
+    "class_type": "SaveVideo",
+    "inputs": {
+      "video": [
+        "2",
+        0
+      ],
+      "filename_prefix": "msch_showcase/02_edge_ascii/robot_video_edges",
+      "format": "mp4",
+      "codec": "h264"
+    }
+  }
+}

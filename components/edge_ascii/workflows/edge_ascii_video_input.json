@@ -1,0 +1,175 @@
+{
+  "last_node_id": 3,
+  "last_link_id": 2,
+  "nodes": [
+    {
+      "flags": {},
+      "mode": 0,
+      "id": 1,
+      "type": "LoadVideo",
+      "pos": [
+        50,
+        100
+      ],
+      "size": [
+        310,
+        340
+      ],
+      "order": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VIDEO",
+          "type": "VIDEO",
+          "links": [
+            1
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadVideo"
+      },
+      "widgets_values": [
+        "select_your_video.mp4"
+      ]
+    },
+    {
+      "flags": {},
+      "mode": 0,
+      "id": 2,
+      "type": "MschEdgeASCIIVideo",
+      "pos": [
+        430,
+        60
+      ],
+      "size": [
+        380,
+        730
+      ],
+      "order": 1,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "link": 1
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": null
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "links": [
+            2
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MschEdgeASCIIVideo"
+      },
+      "widgets_values": [
+        24.0,
+        4.0,
+        "none",
+        1,
+        0.85,
+        "edge_only",
+        16,
+        "#FFFF00",
+        1.0,
+        1.6,
+        0.85,
+        0.055,
+        0.25,
+        1.2,
+        1.6,
+        0.5,
+        false,
+        "original",
+        "#000000"
+      ]
+    },
+    {
+      "flags": {},
+      "mode": 0,
+      "id": 3,
+      "type": "SaveVideo",
+      "pos": [
+        890,
+        100
+      ],
+      "size": [
+        390,
+        440
+      ],
+      "order": 2,
+      "inputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "link": 2
+        }
+      ],
+      "outputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SaveVideo"
+      },
+      "widgets_values": [
+        "video/msch-edge-ascii",
+        "mp4"
+      ]
+    }
+  ],
+  "links": [
+    [
+      1,
+      1,
+      0,
+      2,
+      1,
+      "VIDEO"
+    ],
+    [
+      2,
+      2,
+      0,
+      3,
+      0,
+      "VIDEO"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.85,
+      "offset": [
+        30,
+        30
+      ]
+    }
+  },
+  "version": 0.4
+}

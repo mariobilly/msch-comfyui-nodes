@@ -1,0 +1,24 @@
+ComfyUI-CodeMatrix — install on a new PC
+========================================
+
+1. Unzip so you end up with:
+      ComfyUI/custom_nodes/msch-code-matrix/
+   (must contain __init__.py, code_matrix.py)
+
+2. FULLY restart ComfyUI (close the server console window and relaunch it).
+   ComfyUI does not hot-reload python nodes. If the node ever shows a red X with
+   "UNKNOWN" widgets, the server wasn't restarted: restart it, then hard-refresh
+   the browser (Ctrl+F5).
+
+3. The node appears under the "CodeMatrix" category:
+      - Code Matrix (ASCII)   (video -> green code/ASCII/binary art)
+
+4. Optional ready-made graph (needs VideoHelperSuite for Load/Combine):
+      example_workflow.json
+   Drag it onto the ComfyUI canvas, pick your clip, Queue Prompt.
+
+Dependencies: torch + numpy + Pillow — all already bundled with ComfyUI.
+Nothing to pip install.
+
+See README.md for the full parameter guide and the three looks
+(ASCII portrait / binary 0-1 / matrix code-rain).

@@ -1,0 +1,5 @@
+{
+  "WarpWiggleTransition": "Join two IMAGE clips through an overlapping spatial warp and moving blend seam. The last transition_frames of A meet the first transition_frames of B; B is resized to A's dimensions. Band, block, radial and slit-scan patterns shape displacement, while wiggle, noise, parallax and RGB separation add movement. The returned frame count is len(A) + len(B) minus the effective overlap.",
+  "WarpWiggleStylize": "Apply animated distortion to one IMAGE clip without joining another clip. Spatial pattern and warp frequency define the displacement field. Motion speed advances it through the batch, while constant or pulsed intensity controls when it peaks. The output remains an IMAGE batch with matching timing for an external encoder.",
+  "HUDOverlay": "Composite graphic crosshairs, bars, corner brackets, scanlines and optional glitch text over a frame batch. Select a palette and set opacity, density, line width, jitter and flicker. This is a decorative overlay; it does not detect or track objects."
+}

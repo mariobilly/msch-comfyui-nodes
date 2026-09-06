@@ -1,3 +1,6 @@
 __pycache__/
-*.pyc
-.env*
+*.py[cod]
+.pytest_cache/
+.venv/
+.DS_Store
+Thumbs.db

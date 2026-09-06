@@ -1,0 +1,3 @@
+{
+  "TimeSlice": "Sample different input-frame times at different spatial positions. Vertical or horizontal bands receive offsets controlled by span_frames, band_px, anchor and curve. Optional cubic blocks extend the time field into two dimensions. Edge mode resolves out-of-range times; pixelation, seeded jitter, channel time spread and tint add stylization. A still image or zero time span passes through unchanged."
+}

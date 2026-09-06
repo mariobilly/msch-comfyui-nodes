@@ -1,0 +1,3 @@
+{
+  "ScanFX": "Process each IMAGE frame through eight ordered effect slots, each with its own strength. Choose from the complete effect menu in the input reference. Global mix blends the stack back into the original; an optional MASK, inversion and feathering restrict the affected area. Animated effects use frame position and animation_speed. The scan/depth/thermal appearances are synthetic graphic treatments."
+}

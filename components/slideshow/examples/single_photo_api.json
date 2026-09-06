@@ -1,0 +1,46 @@
+{
+  "1": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "demo.png"
+    }
+  },
+  "2": {
+    "class_type": "marioslideshow",
+    "inputs": {
+      "image_folder": "",
+      "width": 384,
+      "height": 256,
+      "fps": 12,
+      "timing": "Seconds",
+      "bpm": 128.0,
+      "beats_per_image": 4.0,
+      "seconds_per_image": 2.0,
+      "pacing": "Dynamic",
+      "layout": "Art directed mix",
+      "framing": "Smart fit",
+      "transition": "Mixed",
+      "transition_seconds": 0.28,
+      "intensity": 0.75,
+      "motion_blur": "Off",
+      "grain": 0.08,
+      "accent": "#DFFF40",
+      "graphics": true,
+      "headlines": "",
+      "font_path": "",
+      "audio_file": "",
+      "quality": "High",
+      "shuffle": false,
+      "seed": 0,
+      "filename_prefix": "marioslideshow",
+      "show_counter": true,
+      "show_progress": true,
+      "show_headlines": true,
+      "headline_layers": "",
+      "images": [
+        "1",
+        0
+      ]
+    }
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "1": {
+    "class_type": "MschA2V_BeatPromptSequencer",
+    "inputs": {
+      "audio_path": "msch_song_8s.mp3",
+      "schedule_json": "{\"version\": 1, \"fps\": 24, \"total_frames\": 192, \"audio_path\": \"msch_song_8s.mp3\", \"beat_map\": {\"duration_sec\": 8.0, \"sr\": 48000, \"bpm\": 144.23076923076923, \"beats_sec\": [0.13866666666666666, 0.6506666666666666, 1.0666666666666667, 1.4826666666666666, 1.8986666666666667, 2.3146666666666667, 2.72, 3.136, 3.552, 3.968, 4.373333333333333, 4.789333333333333, 5.205333333333333, 5.621333333333333, 6.037333333333334, 6.442666666666667, 6.858666666666666, 7.274666666666667, 7.68], \"onsets_sec\": [0.128, 0.23466666666666666, 0.43733333333333335, 0.6506666666666666, 0.7573333333333333, 0.8106666666666666, 0.864, 0.96, 1.0666666666666667, 1.2693333333333334, 1.472, 1.7813333333333334, 1.8986666666666667, 2.0906666666666665, 2.208, 2.2613333333333334, 2.3146666666666667, 2.506666666666667, 2.72, 2.8906666666666667, 3.104, 3.136, 3.232, 3.264, 3.296, 3.328, 3.4133333333333336, 3.466666666666667, 3.552, 3.7013333333333334, 3.7333333333333334, 3.936, 3.968, 4.373333333333333, 4.789333333333333, 5.205333333333333, 5.621333333333333, 6.037333333333334, 6.442666666666667, 6.549333333333333, 6.656, 6.858666666666666, 7.061333333333334, 7.168, 7.274666666666667, 7.477333333333333, 7.68, 7.786666666666667, 7.8933333333333335], \"downbeats_sec\": [0.13866666666666666, 1.8986666666666667, 3.552, 5.205333333333333, 6.858666666666666], \"analysis_source\": \"full\", \"offset_ms\": 138.66666666666666}, \"grid\": \"every_beat\", \"curve\": \"linear\", \"master_seed\": 7, \"blocks\": [{\"id\": \"A\", \"prompt\": \"Cinematic 35mm film still come alive: a lone man in a dark coat walks slowly toward a glowing neon MOTEL sign at dusk, desert highway, smoke drifting, deep shadows, warm sodium light against a cold blue sky, slow dolly forward, film grain, moody and haunting.\", \"negative\": \"blurry, low quality, text, watermark, distorted face\", \"start_beat\": 0, \"end_beat\": 18, \"fade_in_frames\": 6, \"fade_out_frames\": 8, \"crossfade_frames\": 0, \"group_id\": null, \"seed\": 7, \"ref_image_slot\": null, \"ref_audio_slot\": null}]}",
+      "audio_start_seconds": -1.0,
+      "audio_duration_seconds": -1.0
+    }
+  },
+  "2": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "minimax_h3_ref2va_pruned_int4_convrot.safetensors",
+      "weight_dtype": "default"
+    }
+  },
+  "3": {
+    "class_type": "MiniMaxLowVRAMAttention",
+    "inputs": {
+      "model": [
+        "2",
+        0
+      ],
+      "head_chunks": 4
+    }
+  },
+  "4": {
+    "class_type": "MiniMaxChunkFeedForward",
+    "inputs": {
+      "model": [
+        "3",
+        0
+      ],
+      "chunks": 4,
+      "seq_threshold": 4096
+    }
+  },
+  "5": {
+    "class_type": "CLIPLoader",
+    "inputs": {
+      "clip_name": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+      "type": "minimax",
+      "device": "default"
+    }
+  },
+  "6": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "minimax_h3_video_vae_fp16.safetensors"
+    }
+  },
+  "7": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "minimax_h3_audio_vae_fp32.safetensors"
+    }
+  },
+  "8": {
+    "class_type": "MschA2V_ShotPlanner",
+    "inputs": {
+      "prompt_schedule": [
+        "1",
+        0
+      ],
+      "clip": [
+        "5",
+        0
+      ],
+      "vae": [
+        "6",
+        0
+      ],
+      "audio_vae": [
+        "7",
+        0
+      ],
+      "timeline_audio": [
+        "1",
+        2
+      ],
+      "master_seed": 7,
+      "width": 512,
+      "height": 288,
+      "fps_override": 0,
+      "audio_mode": "lock_source",
+      "task_type": "auto",
+      "add_source_as_reference": true,
+      "ref_image_size": "match",
+      "negative_fallback": "blurry, low quality"
+    }
+  },
+  "9": {
+    "class_type": "MschA2V_BeatKSampler",
+    "inputs": {
+      "model": [
+        "4",
+        0
+      ],
+      "shot_plan": [
+        "8",
+        0
+      ],
+      "steps": 12,
+      "shift_video": 12.0,
+      "shift_audio": 3.0,
+      "sampler_name": "res_multistep",
+      "scheduler": "simple",
+      "cfg": 1.0,
+      "denoise": 1.0,
+      "seed": 7
+    }
+  },
+  "10": {
+    "class_type": "MschA2V_ShotAssembler",
+    "inputs": {
+      "latents": [
+        "9",
+        0
+      ],
+      "vae": [
+        "6",
+        0
+      ]
+    }
+  },
+  "11": {
+    "class_type": "VHS_VideoCombine",
+    "inputs": {
+      "images": [
+        "10",
+        0
+      ],
+      "frame_rate": 24,
+      "loop_count": 0,
+      "filename_prefix": "msch_showcase/13_msch_a2v/beat_synced_h3_motel",
+      "format": "video/h264-mp4",
+      "pix_fmt": "yuv420p",
+      "crf": 17,
+      "save_metadata": true,
+      "trim_to_audio": false,
+      "pingpong": false,
+      "save_output": true,
+      "audio": [
+        "1",
+        2
+      ]
+    }
+  }
+}

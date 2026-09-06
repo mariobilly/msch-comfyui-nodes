@@ -1,0 +1,100 @@
+{
+  "1": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "msch_showcase/stills/kiss_storm.jpg"
+    }
+  },
+  "2": {
+    "class_type": "PointillismEffect",
+    "inputs": {
+      "frames": 72,
+      "fps": 24.0,
+      "hold_frames": 2,
+      "frame_drop": 0.0,
+      "saturation": 1.35,
+      "contrast": 1.15,
+      "density": 75.0,
+      "point_size": 3.2,
+      "size_variation": 0.6,
+      "size_by_darkness": 0.4,
+      "edge_softness": 0.3,
+      "color_jitter": 0.05,
+      "dot_opacity": 1.0,
+      "distribution": "random",
+      "background": "white",
+      "background_color": "#FFFFFF",
+      "distortion": 0.35,
+      "distortion_scale": 3.5,
+      "ink_bleed": 0.15,
+      "paper_grain": 0.12,
+      "seed": 1,
+      "animate_seed": true,
+      "image": [
+        "1",
+        0
+      ]
+    }
+  },
+  "3": {
+    "class_type": "SaveVideo",
+    "inputs": {
+      "video": [
+        "2",
+        0
+      ],
+      "filename_prefix": "msch_showcase/03_pointillism/kiss_storm_paper",
+      "format": "mp4",
+      "codec": "h264"
+    }
+  },
+  "4": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "msch_showcase/stills/birds_dawn.jpg"
+    }
+  },
+  "5": {
+    "class_type": "PointillismEffect",
+    "inputs": {
+      "frames": 72,
+      "fps": 24.0,
+      "hold_frames": 3,
+      "frame_drop": 0.15,
+      "saturation": 1.35,
+      "contrast": 1.15,
+      "density": 110.0,
+      "point_size": 2.6,
+      "size_variation": 0.5,
+      "size_by_darkness": 0.0,
+      "edge_softness": 0.3,
+      "color_jitter": 0.05,
+      "dot_opacity": 1.0,
+      "distribution": "random",
+      "background": "black",
+      "background_color": "#FFFFFF",
+      "distortion": 0.2,
+      "distortion_scale": 3.5,
+      "ink_bleed": 0.15,
+      "paper_grain": 0.05,
+      "seed": 1,
+      "animate_seed": true,
+      "image": [
+        "4",
+        0
+      ]
+    }
+  },
+  "6": {
+    "class_type": "SaveVideo",
+    "inputs": {
+      "video": [
+        "5",
+        0
+      ],
+      "filename_prefix": "msch_showcase/03_pointillism/birds_dawn_black",
+      "format": "mp4",
+      "codec": "h264"
+    }
+  }
+}

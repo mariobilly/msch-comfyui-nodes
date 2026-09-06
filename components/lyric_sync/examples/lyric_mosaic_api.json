@@ -1,0 +1,127 @@
+{
+  "1": {
+    "class_type": "LoadVideo",
+    "inputs": {
+      "file": "demo.mp4"
+    }
+  },
+  "2": {
+    "class_type": "GetVideoComponents",
+    "inputs": {
+      "video": [
+        "1",
+        0
+      ]
+    }
+  },
+  "3": {
+    "class_type": "LoadAudio",
+    "inputs": {
+      "audio": "beat.wav"
+    }
+  },
+  "4": {
+    "class_type": "LyricSyncAlign",
+    "inputs": {
+      "lyrics": "MAKE IT MOVE\nMAKE IT MATTER",
+      "translation": "",
+      "language": "auto",
+      "whisper_model": "medium",
+      "whisperx_exe": "",
+      "audio": [
+        "3",
+        0
+      ]
+    }
+  },
+  "5": {
+    "class_type": "LyricSyncPalette",
+    "inputs": {
+      "num_colors": 10,
+      "color_01": "#FFFFFF",
+      "color_02": "#7DEFA1",
+      "color_03": "#5FE39A",
+      "color_04": "#F25CC1",
+      "color_05": "#FF74B8",
+      "color_06": "#63D6F0",
+      "color_07": "#9B5DE5",
+      "color_08": "#B388F0",
+      "color_09": "#F5B8D6",
+      "color_10": "#FFFFFF",
+      "color_11": "#15151E",
+      "color_12": "#FFD23F",
+      "extra_hex": "",
+      "weight_white": 1
+    }
+  },
+  "6": {
+    "class_type": "LyricSyncMosaic",
+    "inputs": {
+      "frame_rate": [
+        "2",
+        2
+      ],
+      "cols": 24,
+      "font_path": "",
+      "letter_scale": 0.72,
+      "scroll_dir": "down",
+      "scroll_speed": 0.12,
+      "color_density": 0.13,
+      "flicker_period": 4,
+      "wordbox_density": 0.6,
+      "wordbox_scale": 2.3,
+      "bg_key": true,
+      "bg_tol": 0.0,
+      "threshold_bias": 0.0,
+      "invert_subject": false,
+      "fg_detail": 3.0,
+      "posterize": 7,
+      "subject_max": 0.95,
+      "subject_gamma": 0.6,
+      "fg_gap": 0,
+      "text_color": "#15151E",
+      "seed": 7,
+      "palette": "#FFFFFF,#FFFFFF,#7DEFA1,#5FE39A,#F25CC1,#FF74B8,#63D6F0,#9B5DE5,#B388F0,#F5B8D6",
+      "images": [
+        "2",
+        0
+      ],
+      "timing": [
+        "4",
+        0
+      ],
+      "palette_in": [
+        "5",
+        0
+      ]
+    }
+  },
+  "7": {
+    "class_type": "CreateVideo",
+    "inputs": {
+      "fps": [
+        "2",
+        2
+      ],
+      "images": [
+        "6",
+        0
+      ],
+      "audio": [
+        "3",
+        0
+      ]
+    }
+  },
+  "8": {
+    "class_type": "SaveVideo",
+    "inputs": {
+      "filename_prefix": "video/msch-demo",
+      "format": "auto",
+      "video": [
+        "7",
+        0
+      ]
+    }
+  }
+}

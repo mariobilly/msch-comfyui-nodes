@@ -1,0 +1,97 @@
+{
+  "1": {
+    "class_type": "LoadVideo",
+    "inputs": {
+      "file": "demo.mp4"
+    }
+  },
+  "2": {
+    "class_type": "GetVideoComponents",
+    "inputs": {
+      "video": [
+        "1",
+        0
+      ]
+    }
+  },
+  "3": {
+    "class_type": "LoadAudio",
+    "inputs": {
+      "audio": "beat.wav"
+    }
+  },
+  "4": {
+    "class_type": "LyricSyncAlign",
+    "inputs": {
+      "lyrics": "MAKE IT MOVE\nMAKE IT MATTER",
+      "translation": "",
+      "language": "auto",
+      "whisper_model": "medium",
+      "whisperx_exe": "",
+      "audio": [
+        "3",
+        0
+      ]
+    }
+  },
+  "5": {
+    "class_type": "LyricSyncOverlay",
+    "inputs": {
+      "frame_rate": [
+        "2",
+        2
+      ],
+      "bilingual": true,
+      "position": "bottom",
+      "font_path": "",
+      "font_size": 24,
+      "text_color": "#FFFFFF",
+      "box_color": "#000000",
+      "box_opacity": 0.6,
+      "corner_radius": 18,
+      "padding": 24,
+      "y_offset": 0,
+      "max_width_pct": 0.8,
+      "fade_ms": 150,
+      "hold_ms": 0,
+      "highlight_words": false,
+      "highlight_color": "#FFDC50",
+      "images": [
+        "2",
+        0
+      ],
+      "timing": [
+        "4",
+        0
+      ]
+    }
+  },
+  "6": {
+    "class_type": "CreateVideo",
+    "inputs": {
+      "fps": [
+        "2",
+        2
+      ],
+      "images": [
+        "5",
+        0
+      ],
+      "audio": [
+        "3",
+        0
+      ]
+    }
+  },
+  "7": {
+    "class_type": "SaveVideo",
+    "inputs": {
+      "filename_prefix": "video/msch-demo",
+      "format": "auto",
+      "video": [
+        "6",
+        0
+      ]
+    }
+  }
+}

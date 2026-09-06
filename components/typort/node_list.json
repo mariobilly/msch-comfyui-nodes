@@ -1,0 +1,3 @@
+{
+  "MarioTyport": "Author layered motion typography in the browser studio and export it through the same canvas renderer. The saved project contains text layers, styles, timing, easing, keyframes and optional audio analysis. Node settings set output resolution, FPS and format. Transparent MOV/PNG outputs preserve alpha; MP4 composites include a background and optional footage. Returns export path, poster IMAGE, alpha MASK and editable project JSON."
+}

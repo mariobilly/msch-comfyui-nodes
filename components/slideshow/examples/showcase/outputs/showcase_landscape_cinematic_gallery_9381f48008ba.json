@@ -1,0 +1,554 @@
+{
+  "settings": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "bpm": 128.0,
+    "beats_per_image": 4.0,
+    "seconds_per_image": 2.0,
+    "timing": "BPM",
+    "pacing": "Dynamic",
+    "layout": "Art directed mix",
+    "framing": "Smart fit",
+    "transition": "Mixed",
+    "transition_seconds": 0.35,
+    "intensity": 0.7,
+    "motion_blur": 5,
+    "grain": 0.1,
+    "accent": "#DFFF40",
+    "graphics": true,
+    "font_path": "",
+    "seed": 8,
+    "show_counter": true,
+    "show_progress": true,
+    "show_headlines": true
+  },
+  "quality": "High",
+  "frame_count": 1051,
+  "duration_seconds": 35.03333333333333,
+  "image_order": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+  ],
+  "headlines": [
+    "A haunting cinematic wide shot",
+    "One is spectacle",
+    "A room moves over a landscape",
+    "Inside the dream",
+    "It takes large murder",
+    "The diamonds shone like broken glass",
+    "The candle-forests of Notre Dame",
+    "Motel Money Murder Madness",
+    "The barn is burning",
+    "A kiss in the storm",
+    "Some wild fires",
+    "An explosion of birds",
+    "Santa Anas are winds off deserts",
+    "June 30th. On the sun roof"
+  ],
+  "shot_start_frames": [
+    0,
+    107,
+    206,
+    256,
+    306,
+    405,
+    455,
+    505,
+    579,
+    678,
+    753,
+    852,
+    902,
+    976
+  ],
+  "shot_plan": {
+    "version": 1,
+    "source_count": 14,
+    "preset": "Cinematic gallery",
+    "timing_source": "detected beats",
+    "shots": [
+      {
+        "image_index": 0,
+        "duration": 3.575873,
+        "scene": "hero",
+        "transition": "dissolve",
+        "headline": "A haunting cinematic wide shot",
+        "motion": "pull",
+        "strength": 0.22,
+        "variant": 4
+      },
+      {
+        "image_index": 1,
+        "duration": 3.297234,
+        "scene": "window",
+        "transition": "cut",
+        "headline": "One is spectacle",
+        "motion": "rise",
+        "strength": 0.22,
+        "variant": 3
+      },
+      {
+        "image_index": 2,
+        "duration": 1.671837,
+        "scene": "hero",
+        "transition": "dissolve",
+        "headline": "A room moves over a landscape",
+        "motion": "right",
+        "strength": 0.22,
+        "variant": 0
+      },
+      {
+        "image_index": 3,
+        "duration": 1.648617,
+        "scene": "gallery",
+        "transition": "cut",
+        "headline": "Inside the dream",
+        "motion": "rise",
+        "strength": 0.22,
+        "variant": 2
+      },
+      {
+        "image_index": 4,
+        "duration": 3.308844,
+        "scene": "window",
+        "transition": "dissolve",
+        "headline": "It takes large murder",
+        "motion": "push",
+        "strength": 0.22,
+        "variant": 7
+      },
+      {
+        "image_index": 5,
+        "duration": 1.660227,
+        "scene": "hero",
+        "transition": "cut",
+        "headline": "The diamonds shone like broken glass",
+        "motion": "pull",
+        "strength": 0.22,
+        "variant": 2
+      },
+      {
+        "image_index": 6,
+        "duration": 1.660227,
+        "scene": "window",
+        "transition": "dissolve",
+        "headline": "The candle-forests of Notre Dame",
+        "motion": "left",
+        "strength": 0.22,
+        "variant": 0
+      },
+      {
+        "image_index": 7,
+        "duration": 2.472925,
+        "scene": "hero",
+        "transition": "cut",
+        "headline": "Motel Money Murder Madness",
+        "motion": "pull",
+        "strength": 0.22,
+        "variant": 4
+      },
+      {
+        "image_index": 8,
+        "duration": 3.308844,
+        "scene": "window",
+        "transition": "dissolve",
+        "headline": "The barn is burning",
+        "motion": "rise",
+        "strength": 0.22,
+        "variant": 5
+      },
+      {
+        "image_index": 9,
+        "duration": 2.484535,
+        "scene": "gallery",
+        "transition": "cut",
+        "headline": "A kiss in the storm",
+        "motion": "push",
+        "strength": 0.22,
+        "variant": 5
+      },
+      {
+        "image_index": 10,
+        "duration": 3.308844,
+        "scene": "window",
+        "transition": "dissolve",
+        "headline": "Some wild fires",
+        "motion": "right",
+        "strength": 0.22,
+        "variant": 0
+      },
+      {
+        "image_index": 11,
+        "duration": 1.660227,
+        "scene": "hero",
+        "transition": "cut",
+        "headline": "An explosion of birds",
+        "motion": "left",
+        "strength": 0.22,
+        "variant": 3
+      },
+      {
+        "image_index": 12,
+        "duration": 2.472925,
+        "scene": "window",
+        "transition": "dissolve",
+        "headline": "Santa Anas are winds off deserts",
+        "motion": "pull",
+        "strength": 0.22,
+        "variant": 5
+      },
+      {
+        "image_index": 13,
+        "duration": 2.496145,
+        "scene": "hero",
+        "transition": "cut",
+        "headline": "June 30th. On the sun roof",
+        "motion": "rise",
+        "strength": 0.22,
+        "variant": 4
+      }
+    ]
+  },
+  "framing_data": {
+    "version": 1,
+    "items": [
+      {
+        "x": 0.206875,
+        "y": 0.6722595078299777,
+        "box": [
+          0.15525000000000003,
+          0.5798657718120805,
+          0.2585,
+          0.7646532438478748
+        ],
+        "method": "faces"
+      },
+      {
+        "x": 0.265,
+        "y": 0.8590604026845639,
+        "box": [
+          0.21600000000000003,
+          0.771364653243848,
+          0.314,
+          0.9467561521252796
+        ],
+        "method": "faces"
+      },
+      {
+        "x": 0.5,
+        "y": 0.5,
+        "box": null,
+        "method": "center fallback"
+      },
+      {
+        "x": 0.5,
+        "y": 0.5,
+        "box": null,
+        "method": "center fallback"
+      },
+      {
+        "x": 0.5,
+        "y": 0.5,
+        "box": null,
+        "method": "center fallback"
+      },
+      {
+        "x": 0.5,
+        "y": 0.5,
+        "box": null,
+        "method": "center fallback"
+      },
+      {
+        "x": 0.5,
+        "y": 0.5,
+        "box": null,
+        "method": "center fallback"
+      },
+      {
+        "x": 0.5,
+        "y": 0.5,
+        "box": null,
+        "method": "center fallback"
+      },
+      {
+        "x": 0.5,
+        "y": 0.5,
+        "box": null,
+        "method": "center fallback"
+      },
+      {
+        "x": 0.5,
+        "y": 0.5,
+        "box": null,
+        "method": "center fallback"
+      },
+      {
+        "x": 0.5,
+        "y": 0.5,
+        "box": null,
+        "method": "center fallback"
+      },
+      {
+        "x": 0.319375,
+        "y": 0.37834821428571425,
+        "box": [
+          0.2135,
+          0.18928571428571428,
+          0.42525,
+          0.5674107142857142
+        ],
+        "method": "faces"
+      },
+      {
+        "x": 0.5,
+        "y": 0.5,
+        "box": null,
+        "method": "center fallback"
+      },
+      {
+        "x": 0.5,
+        "y": 0.5,
+        "box": null,
+        "method": "center fallback"
+      }
+    ]
+  },
+  "headline_layers": [],
+  "prompt": {
+    "1": {
+      "class_type": "MarioSlideshowLoadImages",
+      "inputs": {
+        "directory": "E:/ComfyUI_windows_portable/ComfyUI/input/msch_showcase/slideshow_a",
+        "max_images": 100,
+        "order": "Natural"
+      },
+      "is_changed": [
+        "87c2d3ebfd7f1af1e1f7f11e9d94c77ef4cd29475cbb17dba99c1d95cc4f54ea"
+      ]
+    },
+    "2": {
+      "class_type": "LoadAudio",
+      "inputs": {
+        "audio": "msch_song_40s.mp3"
+      },
+      "is_changed": [
+        "08b7302fba7f7e8bbb1dcf92ee9d0d49c42f6bdf5576f5869aa9ddbecf4715eb"
+      ]
+    },
+    "3": {
+      "class_type": "MarioBeatAnalyzer",
+      "inputs": {
+        "audio_file": "",
+        "tempo_hint": 0.0,
+        "beat_offset_seconds": 0.0,
+        "max_seconds": 180.0,
+        "audio": [
+          "2",
+          0
+        ]
+      },
+      "is_changed": [
+        "audio_input"
+      ]
+    },
+    "4": {
+      "class_type": "MarioSubjectFramer",
+      "inputs": {
+        "mode": "Faces",
+        "subject_margin": 0.2,
+        "focus_x": 0.5,
+        "focus_y": 0.5,
+        "overrides_json": "",
+        "photos": [
+          "1",
+          0
+        ]
+      }
+    },
+    "5": {
+      "class_type": "MarioSlideshowDirector",
+      "inputs": {
+        "image_count": [
+          "1",
+          2
+        ],
+        "preset": "Cinematic gallery",
+        "timing": "BPM",
+        "bpm": 128.0,
+        "beats_per_image": 4.0,
+        "seconds_per_image": 2.0,
+        "pacing": "Dynamic",
+        "headlines": "A haunting cinematic wide shot\nOne is spectacle\nA room moves over a landscape\nInside the dream\nIt takes large murder\nThe diamonds shone like broken glass\nThe candle-forests of Notre Dame\nMotel Money Murder Madness\nThe barn is burning\nA kiss in the storm\nSome wild fires\nAn explosion of birds\nSanta Anas are winds off deserts\nJune 30th. On the sun roof",
+        "shuffle": false,
+        "seed": 8,
+        "timeline_json_in": "",
+        "beats": [
+          "3",
+          0
+        ]
+      }
+    },
+    "6": {
+      "class_type": "MarioSlideshowRenderer",
+      "inputs": {
+        "plan": [
+          "5",
+          0
+        ],
+        "image_folder": "",
+        "width": 1920,
+        "height": 1080,
+        "fps": 30,
+        "framing": "Smart fit",
+        "transition_seconds": 0.35,
+        "intensity": 0.7,
+        "motion_blur": "Fine (5 samples)",
+        "grain": 0.1,
+        "accent": "#DFFF40",
+        "graphics": true,
+        "font_path": "",
+        "audio_file": "",
+        "quality": "High",
+        "seed": 8,
+        "filename_prefix": "showcase_landscape_cinematic_gallery",
+        "photos": [
+          "1",
+          0
+        ],
+        "audio": [
+          "2",
+          0
+        ],
+        "focus": [
+          "4",
+          0
+        ],
+        "show_counter": true,
+        "show_progress": true,
+        "show_headlines": true,
+        "headline_layers": ""
+      },
+      "is_changed": [
+        "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      ]
+    },
+    "7": {
+      "class_type": "SaveImage",
+      "inputs": {
+        "images": [
+          "1",
+          1
+        ],
+        "filename_prefix": "msch_showcase/10_marioslideshow/contact_sheet"
+      }
+    },
+    "8": {
+      "class_type": "SaveImage",
+      "inputs": {
+        "images": [
+          "3",
+          2
+        ],
+        "filename_prefix": "msch_showcase/10_marioslideshow/beat_preview"
+      }
+    },
+    "9": {
+      "class_type": "SaveImage",
+      "inputs": {
+        "images": [
+          "5",
+          2
+        ],
+        "filename_prefix": "msch_showcase/10_marioslideshow/timeline_preview"
+      }
+    },
+    "10": {
+      "class_type": "SaveImage",
+      "inputs": {
+        "images": [
+          "4",
+          1
+        ],
+        "filename_prefix": "msch_showcase/10_marioslideshow/subject_framing_preview"
+      }
+    },
+    "11": {
+      "class_type": "SaveImage",
+      "inputs": {
+        "images": [
+          "6",
+          2
+        ],
+        "filename_prefix": "msch_showcase/10_marioslideshow/landscape_poster"
+      }
+    },
+    "12": {
+      "class_type": "MarioSlideshowFrames",
+      "inputs": {
+        "video": [
+          "6",
+          0
+        ],
+        "start_frame": 60,
+        "max_frames": 90,
+        "memory_limit_gb": 2.0
+      }
+    },
+    "13": {
+      "class_type": "TimeSlice",
+      "inputs": {
+        "images": [
+          "12",
+          0
+        ],
+        "axis": "vertical",
+        "span_frames": 20,
+        "band_px": 2,
+        "anchor": 0.5,
+        "curve": "ease",
+        "edge": "mirror",
+        "pixelate_px": 0,
+        "jitter_px": 0,
+        "jitter_seed": 0,
+        "chroma_spread": 6,
+        "cubic_px": 0,
+        "cubic_lateral": 1.0,
+        "tint_mode": "off",
+        "tint_strength": 0.0
+      }
+    },
+    "14": {
+      "class_type": "VHS_VideoCombine",
+      "inputs": {
+        "images": [
+          "13",
+          0
+        ],
+        "frame_rate": 30.0,
+        "loop_count": 0,
+        "filename_prefix": "msch_showcase/10_marioslideshow/extract_frames_into_timeslice",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 17,
+        "save_metadata": true,
+        "trim_to_audio": false,
+        "pingpong": false,
+        "save_output": true
+      }
+    }
+  },
+  "workflow": null
+}

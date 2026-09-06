@@ -1,0 +1,10 @@
+{
+  "step": 17,
+  "offset": 5,
+  "min_frames": 124,
+  "max_frames": 362,
+  "fps": 24,
+  "audio_latent_fps": 40,
+  "source": "comfyui-minimax-h3-audio-T8 core.py:14-28 (align_frame_count / MIN_TRAINED_FRAMES / MAX_TRAINED_FRAMES / FPS / AUDIO_LATENT_FPS), introspected 2026-08-11",
+  "note": "MiniMax H3 only accepts frame counts on the grid frame_count = offset + k*step (17n+5). Valid lengths run from min_frames (124, k=7) to max_frames (362, k=21). This file is user-editable: if a future H3 checkpoint changes these constants, update them here. mscha2v/core/buckets.py loads these as the pure-Python planning authority; mscha2v/h3/adapter.py cross-checks against the live installed pack at render time."
+}

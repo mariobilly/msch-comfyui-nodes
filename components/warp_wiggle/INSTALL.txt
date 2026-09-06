@@ -1,0 +1,26 @@
+ComfyUI-WarpWiggle — install on a new PC
+========================================
+
+1. Unzip so you end up with:
+      ComfyUI/custom_nodes/msch-warp-wiggle/
+   (must contain __init__.py, warp_wiggle.py, warp_stylize.py, hud_overlay.py)
+
+2. FULLY restart ComfyUI (close the server console window and relaunch it).
+   ComfyUI does not hot-reload python nodes — a fresh start is required so it
+   registers them. If a node ever shows a red X with "UNKNOWN" widgets, the
+   server wasn't restarted: restart it, then hard-refresh the browser (Ctrl+F5).
+
+3. Three nodes appear under the "WarpWiggle" category:
+      - WarpWiggle Transition      (blend TWO clips with the warp/wiggle)
+      - WarpWiggle Stylize (1 clip) (apply the warp/wiggle to ONE clip)
+      - HUD Overlay                 (crosshairs / bars / glitch text, any clip)
+
+4. Optional ready-made graphs (need VideoHelperSuite for Load/Combine):
+      example_workflow_TWO_clips.json  — transition between two videos
+      example_workflow_ONE_clip.json   — stylize a single video
+   Drag either onto the ComfyUI canvas, pick your clip(s), Queue Prompt.
+
+Dependencies: torch + Pillow + numpy — all already bundled with ComfyUI.
+Nothing to pip install.
+
+See README.md for the full parameter guide and presets.

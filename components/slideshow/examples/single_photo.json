@@ -1,0 +1,169 @@
+{
+  "id": "cc866f72-d661-534f-aaa9-a59e18e42ffc",
+  "revision": 0,
+  "last_node_id": 2,
+  "last_link_id": 1,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "LoadImage",
+      "pos": [
+        40,
+        100
+      ],
+      "size": [
+        350,
+        460
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            1
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "demo.png"
+      ]
+    },
+    {
+      "id": 2,
+      "type": "marioslideshow",
+      "pos": [
+        440,
+        100
+      ],
+      "size": [
+        350,
+        460
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "photos",
+          "type": "MARIO_IMAGES",
+          "link": null
+        },
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 1
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": null
+        },
+        {
+          "name": "beats",
+          "type": "MARIO_BEATS",
+          "link": null
+        },
+        {
+          "name": "focus",
+          "type": "MARIO_FOCUS",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "links": []
+        },
+        {
+          "name": "mp4_path",
+          "type": "STRING",
+          "links": []
+        },
+        {
+          "name": "poster",
+          "type": "IMAGE",
+          "links": []
+        },
+        {
+          "name": "fps",
+          "type": "FLOAT",
+          "links": []
+        },
+        {
+          "name": "frame_count",
+          "type": "INT",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "marioslideshow"
+      },
+      "widgets_values": [
+        "",
+        384,
+        256,
+        12,
+        "Seconds",
+        128.0,
+        4.0,
+        2.0,
+        "Dynamic",
+        "Art directed mix",
+        "Smart fit",
+        "Mixed",
+        0.28,
+        0.75,
+        "Off",
+        0.08,
+        "#DFFF40",
+        true,
+        "",
+        "",
+        "",
+        "High",
+        false,
+        0,
+        "marioslideshow",
+        true,
+        true,
+        true,
+        ""
+      ]
+    }
+  ],
+  "links": [
+    [
+      1,
+      1,
+      0,
+      2,
+      1,
+      "IMAGE"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.7,
+      "offset": [
+        20,
+        40
+      ]
+    }
+  },
+  "version": 0.4
+}

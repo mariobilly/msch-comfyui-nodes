@@ -1,0 +1,351 @@
+{
+  "id": "00000000-0000-0000-0000-000000000000",
+  "revision": 0,
+  "last_node_id": 1,
+  "last_link_id": 0,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "MarioTyport",
+      "pos": [
+        150,
+        80
+      ],
+      "size": [
+        430,
+        494
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "showAdvanced": null,
+      "inputs": [
+        {
+          "color_off": null,
+          "color_on": null,
+          "dir": null,
+          "label": null,
+          "localized_name": "text",
+          "locked": null,
+          "name": "text",
+          "nameLocked": null,
+          "removable": null,
+          "shape": null,
+          "type": "STRING",
+          "widget": {
+            "name": "text"
+          },
+          "link": null
+        },
+        {
+          "color_off": null,
+          "color_on": null,
+          "dir": null,
+          "label": null,
+          "localized_name": "font",
+          "locked": null,
+          "name": "font",
+          "nameLocked": null,
+          "removable": null,
+          "shape": null,
+          "type": "COMBO",
+          "widget": {
+            "name": "font"
+          },
+          "link": null
+        },
+        {
+          "color_off": null,
+          "color_on": null,
+          "dir": null,
+          "label": null,
+          "localized_name": "animation",
+          "locked": null,
+          "name": "animation",
+          "nameLocked": null,
+          "removable": null,
+          "shape": null,
+          "type": "COMBO",
+          "widget": {
+            "name": "animation"
+          },
+          "link": null
+        },
+        {
+          "color_off": null,
+          "color_on": null,
+          "dir": null,
+          "label": null,
+          "localized_name": "duration",
+          "locked": null,
+          "name": "duration",
+          "nameLocked": null,
+          "removable": null,
+          "shape": null,
+          "type": "FLOAT",
+          "widget": {
+            "name": "duration"
+          },
+          "link": null
+        },
+        {
+          "color_off": null,
+          "color_on": null,
+          "dir": null,
+          "label": null,
+          "localized_name": "width",
+          "locked": null,
+          "name": "width",
+          "nameLocked": null,
+          "removable": null,
+          "shape": null,
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          },
+          "link": null
+        },
+        {
+          "color_off": null,
+          "color_on": null,
+          "dir": null,
+          "label": null,
+          "localized_name": "height",
+          "locked": null,
+          "name": "height",
+          "nameLocked": null,
+          "removable": null,
+          "shape": null,
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          },
+          "link": null
+        },
+        {
+          "color_off": null,
+          "color_on": null,
+          "dir": null,
+          "label": null,
+          "localized_name": "fps",
+          "locked": null,
+          "name": "fps",
+          "nameLocked": null,
+          "removable": null,
+          "shape": null,
+          "type": "INT",
+          "widget": {
+            "name": "fps"
+          },
+          "link": null
+        },
+        {
+          "color_off": null,
+          "color_on": null,
+          "dir": null,
+          "label": null,
+          "localized_name": "format",
+          "locked": null,
+          "name": "format",
+          "nameLocked": null,
+          "removable": null,
+          "shape": null,
+          "type": "COMBO",
+          "widget": {
+            "name": "format"
+          },
+          "link": null
+        },
+        {
+          "color_off": null,
+          "color_on": null,
+          "dir": null,
+          "label": null,
+          "localized_name": "motion_blur",
+          "locked": null,
+          "name": "motion_blur",
+          "nameLocked": null,
+          "removable": null,
+          "shape": null,
+          "type": "COMBO",
+          "widget": {
+            "name": "motion_blur"
+          },
+          "link": null
+        },
+        {
+          "color_off": null,
+          "color_on": null,
+          "dir": null,
+          "label": null,
+          "localized_name": "video_file",
+          "locked": null,
+          "name": "video_file",
+          "nameLocked": null,
+          "removable": null,
+          "shape": null,
+          "type": "STRING",
+          "widget": {
+            "name": "video_file"
+          },
+          "link": null
+        },
+        {
+          "color_off": null,
+          "color_on": null,
+          "dir": null,
+          "label": null,
+          "localized_name": "project_json",
+          "locked": null,
+          "name": "project_json",
+          "nameLocked": null,
+          "removable": null,
+          "shape": null,
+          "type": "STRING",
+          "widget": {
+            "name": "project_json"
+          },
+          "link": null
+        },
+        {
+          "color_off": null,
+          "color_on": null,
+          "dir": null,
+          "label": null,
+          "localized_name": "filename_prefix",
+          "locked": null,
+          "name": "filename_prefix",
+          "nameLocked": null,
+          "removable": null,
+          "shape": null,
+          "type": "STRING",
+          "widget": {
+            "name": "filename_prefix"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "color_off": null,
+          "color_on": null,
+          "dir": null,
+          "label": null,
+          "localized_name": "export_path",
+          "locked": null,
+          "name": "export_path",
+          "nameLocked": null,
+          "removable": null,
+          "shape": null,
+          "type": "STRING",
+          "pos": null,
+          "slot_index": null,
+          "links": null
+        },
+        {
+          "color_off": null,
+          "color_on": null,
+          "dir": null,
+          "label": null,
+          "localized_name": "poster",
+          "locked": null,
+          "name": "poster",
+          "nameLocked": null,
+          "removable": null,
+          "shape": null,
+          "type": "IMAGE",
+          "pos": null,
+          "slot_index": null,
+          "links": null
+        },
+        {
+          "color_off": null,
+          "color_on": null,
+          "dir": null,
+          "label": null,
+          "localized_name": "alpha_mask",
+          "locked": null,
+          "name": "alpha_mask",
+          "nameLocked": null,
+          "removable": null,
+          "shape": null,
+          "type": "MASK",
+          "pos": null,
+          "slot_index": null,
+          "links": null
+        },
+        {
+          "color_off": null,
+          "color_on": null,
+          "dir": null,
+          "label": null,
+          "localized_name": "project_json",
+          "locked": null,
+          "name": "project_json",
+          "nameLocked": null,
+          "removable": null,
+          "shape": null,
+          "type": "STRING",
+          "pos": null,
+          "slot_index": null,
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MarioTyport"
+      },
+      "widgets_values": [
+        "MAKE\nIT MATTER",
+        "Black",
+        "Line reveal",
+        6,
+        1920,
+        1080,
+        30,
+        "Transparent MOV",
+        "3 samples",
+        "",
+        "{\"version\":1,\"duration\":6,\"background\":\"#14181C\",\"video_offset\":0,\"markers\":[],\"layers\":[{\"text\":\"MAKE\\nIT MATTER\",\"font\":\"Black\",\"preset\":\"Line reveal\",\"start\":0,\"end\":2.2,\"x\":0.5,\"y\":0.5,\"width\":0.9,\"height\":0.78,\"size\":0.48,\"fit\":true,\"align\":\"center\",\"direction\":\"auto\",\"line_height\":1,\"tracking\":0,\"color\":\"#FFFFFF\",\"opacity\":1,\"stroke_color\":\"#111111\",\"stroke\":0,\"shadow_color\":\"#000000\",\"shadow_opacity\":0.3,\"shadow_blur\":0.015,\"shadow_x\":0.005,\"shadow_y\":0.012,\"block_color\":\"#DEFF4A\",\"block_opacity\":0,\"padding\":0.015,\"rotation\":0,\"scale\":1,\"anchor_x\":0.5,\"anchor_y\":0.5,\"enter\":0.65,\"exit\":0.25,\"stagger\":0.12,\"distance\":0.1,\"easing\":\"Power out\",\"curve\":[0.22,1,0.36,1],\"enabled\":true,\"keyframes\":[]},{\"text\":\"MOVE WITH\\nPURPOSE\",\"font\":\"Black\",\"preset\":\"Word cascade\",\"start\":2,\"end\":4.2,\"x\":0.5,\"y\":0.5,\"width\":0.9,\"height\":0.78,\"size\":0.48,\"fit\":true,\"align\":\"center\",\"direction\":\"auto\",\"line_height\":1,\"tracking\":0,\"color\":\"#DEFF4A\",\"opacity\":1,\"stroke_color\":\"#111111\",\"stroke\":0,\"shadow_color\":\"#000000\",\"shadow_opacity\":0.3,\"shadow_blur\":0.015,\"shadow_x\":0.005,\"shadow_y\":0.012,\"block_color\":\"#DEFF4A\",\"block_opacity\":0,\"padding\":0.015,\"rotation\":0,\"scale\":1,\"anchor_x\":0.5,\"anchor_y\":0.5,\"enter\":0.65,\"exit\":0.25,\"stagger\":0.12,\"distance\":0.1,\"easing\":\"Power out\",\"curve\":[0.22,1,0.36,1],\"enabled\":true,\"keyframes\":[]},{\"text\":\"MARIOTYPORT\",\"font\":\"Black\",\"preset\":\"Scale impact\",\"start\":4,\"end\":6,\"x\":0.5,\"y\":0.5,\"width\":0.9,\"height\":0.78,\"size\":0.48,\"fit\":true,\"align\":\"center\",\"direction\":\"auto\",\"line_height\":1,\"tracking\":0,\"color\":\"#FFFFFF\",\"opacity\":1,\"stroke_color\":\"#111111\",\"stroke\":0,\"shadow_color\":\"#000000\",\"shadow_opacity\":0.3,\"shadow_blur\":0.015,\"shadow_x\":0.005,\"shadow_y\":0.012,\"block_color\":\"#DEFF4A\",\"block_opacity\":0,\"padding\":0.015,\"rotation\":0,\"scale\":1,\"anchor_x\":0.5,\"anchor_y\":0.5,\"enter\":0.65,\"exit\":0.25,\"stagger\":0.12,\"distance\":0.1,\"easing\":\"Power out\",\"curve\":[0.22,1,0.36,1],\"enabled\":true,\"keyframes\":[]}]}",
+        "mariotyport",
+        null,
+        null,
+        ""
+      ],
+      "widgets_values_named": {
+        "text": "MAKE\nIT MATTER",
+        "font": "Black",
+        "animation": "Line reveal",
+        "duration": 6,
+        "width": 1920,
+        "height": 1080,
+        "fps": 30,
+        "format": "Transparent MOV",
+        "motion_blur": "3 samples",
+        "video_file": "",
+        "project_json": "{\"version\":1,\"duration\":6,\"background\":\"#14181C\",\"video_offset\":0,\"markers\":[],\"layers\":[{\"text\":\"MAKE\\nIT MATTER\",\"font\":\"Black\",\"preset\":\"Line reveal\",\"start\":0,\"end\":2.2,\"x\":0.5,\"y\":0.5,\"width\":0.9,\"height\":0.78,\"size\":0.48,\"fit\":true,\"align\":\"center\",\"direction\":\"auto\",\"line_height\":1,\"tracking\":0,\"color\":\"#FFFFFF\",\"opacity\":1,\"stroke_color\":\"#111111\",\"stroke\":0,\"shadow_color\":\"#000000\",\"shadow_opacity\":0.3,\"shadow_blur\":0.015,\"shadow_x\":0.005,\"shadow_y\":0.012,\"block_color\":\"#DEFF4A\",\"block_opacity\":0,\"padding\":0.015,\"rotation\":0,\"scale\":1,\"anchor_x\":0.5,\"anchor_y\":0.5,\"enter\":0.65,\"exit\":0.25,\"stagger\":0.12,\"distance\":0.1,\"easing\":\"Power out\",\"curve\":[0.22,1,0.36,1],\"enabled\":true,\"keyframes\":[]},{\"text\":\"MOVE WITH\\nPURPOSE\",\"font\":\"Black\",\"preset\":\"Word cascade\",\"start\":2,\"end\":4.2,\"x\":0.5,\"y\":0.5,\"width\":0.9,\"height\":0.78,\"size\":0.48,\"fit\":true,\"align\":\"center\",\"direction\":\"auto\",\"line_height\":1,\"tracking\":0,\"color\":\"#DEFF4A\",\"opacity\":1,\"stroke_color\":\"#111111\",\"stroke\":0,\"shadow_color\":\"#000000\",\"shadow_opacity\":0.3,\"shadow_blur\":0.015,\"shadow_x\":0.005,\"shadow_y\":0.012,\"block_color\":\"#DEFF4A\",\"block_opacity\":0,\"padding\":0.015,\"rotation\":0,\"scale\":1,\"anchor_x\":0.5,\"anchor_y\":0.5,\"enter\":0.65,\"exit\":0.25,\"stagger\":0.12,\"distance\":0.1,\"easing\":\"Power out\",\"curve\":[0.22,1,0.36,1],\"enabled\":true,\"keyframes\":[]},{\"text\":\"MARIOTYPORT\",\"font\":\"Black\",\"preset\":\"Scale impact\",\"start\":4,\"end\":6,\"x\":0.5,\"y\":0.5,\"width\":0.9,\"height\":0.78,\"size\":0.48,\"fit\":true,\"align\":\"center\",\"direction\":\"auto\",\"line_height\":1,\"tracking\":0,\"color\":\"#FFFFFF\",\"opacity\":1,\"stroke_color\":\"#111111\",\"stroke\":0,\"shadow_color\":\"#000000\",\"shadow_opacity\":0.3,\"shadow_blur\":0.015,\"shadow_x\":0.005,\"shadow_y\":0.012,\"block_color\":\"#DEFF4A\",\"block_opacity\":0,\"padding\":0.015,\"rotation\":0,\"scale\":1,\"anchor_x\":0.5,\"anchor_y\":0.5,\"enter\":0.65,\"exit\":0.25,\"stagger\":0.12,\"distance\":0.1,\"easing\":\"Power out\",\"curve\":[0.22,1,0.36,1],\"enabled\":true,\"keyframes\":[]}]}",
+        "filename_prefix": "mariotyport",
+        "Open typography studio": null,
+        "Reset to node text": null,
+        "mariotyport_preview": ""
+      },
+      "color": "#3b4431",
+      "bgcolor": "#202326"
+    }
+  ],
+  "links": [],
+  "floatingLinks": null,
+  "groups": [],
+  "definitions": null,
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.9,
+      "offset": [
+        416,
+        110
+      ]
+    },
+    "reroutes": null
+  },
+  "version": 0.4
+}

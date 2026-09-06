@@ -1,0 +1,106 @@
+{
+  "id": "82c2c889-1022-5bf5-978a-7cd07da5852e",
+  "revision": 0,
+  "last_node_id": 2,
+  "last_link_id": 1,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "MschA2V_BeatPromptSequencer",
+      "pos": [
+        40,
+        100
+      ],
+      "size": [
+        350,
+        460
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "prompt_schedule",
+          "type": "MSCHA2V_SCHEDULE",
+          "links": []
+        },
+        {
+          "name": "total_frames",
+          "type": "INT",
+          "links": []
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": [
+            1
+          ]
+        },
+        {
+          "name": "bpm",
+          "type": "FLOAT",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MschA2V_BeatPromptSequencer"
+      },
+      "widgets_values": [
+        "beat.wav",
+        "{\"version\": 1, \"fps\": 24, \"total_frames\": 48, \"audio_path\": \"beat.wav\", \"beat_map\": {\"duration_sec\": 2.0, \"sr\": 24000, \"bpm\": 120.0, \"beats_sec\": [0.0, 0.5, 1.0, 1.5], \"onsets_sec\": [0.0, 0.5, 1.0, 1.5], \"downbeats_sec\": [], \"analysis_source\": \"full\", \"offset_ms\": 0}, \"grid\": \"every_beat\", \"curve\": \"linear\", \"blocks\": [{\"id\": \"shot-1\", \"prompt\": \"A colorful geometric sculpture rotating under soft studio lighting.\", \"negative\": \"blurry, low quality\", \"start_beat\": 0, \"end_beat\": 4, \"start_frame\": 0, \"end_frame\": 0, \"fade_in_frames\": 0, \"fade_out_frames\": 0, \"crossfade_frames\": 0, \"group_id\": null, \"seed\": null, \"ref_image_slot\": null, \"ref_audio_slot\": null}], \"master_seed\": 42}",
+        -1.0,
+        -1.0
+      ]
+    },
+    {
+      "id": 2,
+      "type": "MschA2V_PreviewAudio",
+      "pos": [
+        440,
+        100
+      ],
+      "size": [
+        350,
+        460
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 1
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "MschA2V_PreviewAudio"
+      },
+      "widgets_values": []
+    }
+  ],
+  "links": [
+    [
+      1,
+      1,
+      2,
+      2,
+      0,
+      "AUDIO"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.7,
+      "offset": [
+        20,
+        40
+      ]
+    }
+  },
+  "version": 0.4
+}

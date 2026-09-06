@@ -1,0 +1,19 @@
+{
+  "1": {
+    "class_type": "MarioTyport",
+    "inputs": {
+      "text": "MAKE\nIT MOVE",
+      "font": "Black",
+      "animation": "Line reveal",
+      "duration": 2.0,
+      "width": 384,
+      "height": 256,
+      "fps": 12,
+      "format": "MP4 composite",
+      "motion_blur": "Off",
+      "video_file": "",
+      "project_json": "",
+      "filename_prefix": "mariotyport"
+    }
+  }
+}

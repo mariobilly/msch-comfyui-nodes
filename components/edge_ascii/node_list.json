@@ -1,0 +1,4 @@
+{
+  "EdgeASCII": "Analyze local image gradients and align ASCII strokes with contours. Mixed and full-ASCII modes add tone-based fills. Cell size, line dimensions, thresholds, coherence and blur determine the mark field; colors and opacity control compositing. An optional MASK restricts coverage. Returns an IMAGE batch and retains the legacy node identifier for existing workflows.",
+  "MschEdgeASCIIVideo": "Animate contour-following ASCII over a still image or process a native VIDEO. For a still, duration_seconds and FPS define the animation. For video, source frame count, FPS and audio are retained unless audio is explicitly replaced. Flow and pulse animate marks independently of content motion; none uses a static treatment per frame. Returns native VIDEO for Save Video."
+}

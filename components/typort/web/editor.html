@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>mariotyport studio</title><link rel="stylesheet" href="editor.css">
+<style>.layers section{display:block}.layers section label{display:block}.layers section label input,.layers section label select{display:block;width:100%!important;margin-top:4px}
+#audioWave{display:block;width:100%;height:54px;cursor:crosshair}#audioName,#analysisStatus{overflow-wrap:anywhere;color:#a9c4bc;font-size:11px;margin:8px 0}#analysisBusy{width:100%;height:5px}#audioMute{width:auto!important}.layers section button{margin:3px 0;max-width:100%}
+#audioRow{position:relative;overflow:hidden}#audioClip{position:absolute;top:2px;height:50px;border:1px solid #7acbbb;border-radius:3px;cursor:grab;touch-action:none}#audioClip b{position:absolute;top:0;bottom:0;width:7px;background:#7acbbb55;cursor:ew-resize}#audioClip b:first-child{left:0}#audioClip b:last-child{right:0}
+.cue-track{background:#29251b}.text-cue{position:absolute;top:3px;height:24px;min-width:0;padding:0 2px;overflow:hidden;white-space:nowrap;border:1px dashed #d9bc70;border-radius:3px;background:#3a3321;color:#ffe29a;font-size:11px}.text-cue:hover{background:#5c4e2c}#showCues{width:auto!important;margin:0}.layers section label:has(#showCues){display:flex;align-items:center;gap:6px}
+button svg{width:15px;height:15px;vertical-align:middle;pointer-events:none}.timeline-content{position:relative;min-width:100%}#zoom{width:70px}.curve{grid-column:1/-1;width:100%;height:110px;background:#17191c;touch-action:none}.key-dot{position:absolute;top:8px;width:8px;height:8px;background:#f2df97;transform:rotate(45deg);border:0;padding:0;min-height:0;border-radius:0;cursor:pointer}</style></head>
+<body>
+<header><strong>mariotyport <small>STUDIO</small></strong><span id="projectState">Untitled typography</span>
+<div class="actions"><button id="undo" title="Undo" aria-label="Undo">&#8630;</button><button id="redo" title="Redo" aria-label="Redo">&#8631;</button>
+<button id="close">Cancel</button><button id="apply" class="primary">Apply timeline</button></div></header>
+<main>
+<aside class="layers"><div class="section-title">LAYERS <button id="add" title="Add text layer" aria-label="Add text layer">+</button></div>
+<div id="layerList"></div><div class="layer-actions"><button id="duplicate">Duplicate</button><button id="delete">Delete</button>
+<button id="up" title="Move layer forward">Forward</button><button id="down" title="Move layer backward">Backward</button></div>
+<section class="footage"><div class="section-title">FOOTAGE</div><button id="upload">Upload video</button><input id="file" type="file" accept="video/*" hidden>
+<span id="videoName">No footage</span><button id="removeVideo">Remove footage</button><label>Video offset (s)<input id="videoOffset" type="number" min="0" max="36000" step="0.1"></label></section>
+<section><div class="section-title">SOUNDTRACK</div><button id="uploadAudio">Upload audio</button><input id="audioFile" type="file" accept="audio/*" hidden>
+<div id="audioName">No soundtrack</div><button id="removeAudio">Remove audio</button>
+<label>Analysis<select id="analysisMode"><option value="mix">Mix + frequency bands</option><option value="stems">Separate instruments</option></select></label>
+<label>Separation device<select id="analysisDevice" disabled><option value="auto">Auto (GPU when available)</option><option value="cuda">GPU (CUDA)</option><option value="cpu">CPU</option></select></label>
+<button id="analyzeAudio">Analyze audio</button><progress id="analysisBusy" hidden></progress><div id="analysisStatus" role="status"></div>
+<label>In (source s)<input id="audioIn" type="number" min="0" max="600" step="0.01"></label>
+<label>Out (source s)<input id="audioOut" type="number" min="0" max="600" step="0.01"></label>
+<label>Start (timeline s)<input id="audioStart" type="number" min="0" max="600" step="0.01"></label>
+<label>Gain (%)<input id="audioGain" type="number" min="0" max="200" step="1"></label>
+<label>Mute export<input id="audioMute" type="checkbox"></label>
+<label>BPM override (0 = auto)<input id="audioBpm" type="number" min="0" max="300" step="0.1"></label>
+<label>Beat shift (s)<input id="beatOffset" type="number" min="-5" max="5" step="0.01"></label>
+<button id="useAudioBeats">Use detected markers</button></section>
+<section><div class="section-title">TEXT CUES</div>
+<label>Trigger<select id="cueMode"><option>Beats</option><option>Hits</option></select></label>
+<label>Hit source<select id="cueSource"><option>Mix</option></select></label>
+<label>Every N events<select id="cueEvery"><option>1</option><option>2</option><option selected>4</option><option>8</option><option>16</option></select></label>
+<label>Minimum duration (s)<input id="cueMinimum" type="number" value="0.4" min="0.1" max="10" step="0.1"></label>
+<button id="generateCues">Generate text cues</button>
+<label>On cue click<select id="cueAction"><option value="new">New text layer</option><option value="selected">Time selected layer</option></select></label>
+<label><input id="showCues" type="checkbox" checked> Show cue boxes</label>
+<button id="clearCues">Clear unused cues</button></section>
+<section><div class="section-title">CANVAS</div><label>Resolution<select id="resolution"><option value="1920,1080">1920 x 1080</option><option value="3840,2160">3840 x 2160</option><option value="1280,720">1280 x 720</option><option value="custom">Custom</option></select></label>
+<label>Export<select id="format"><option>Transparent MOV</option><option>PNG sequence</option><option>MP4 composite</option></select></label>
+<label>Background<input id="background" type="color"></label><label>FPS<input id="fps" type="number" min="1" max="60"></label>
+<label>Blur<select id="blur"><option>Off</option><option>3 samples</option><option>5 samples</option></select></label>
+<label>Duration (s)<input id="duration" type="number" min="0.1" max="600" step="0.1"></label></section></aside>
+<section class="workspace"><div class="viewer-bar"><span id="dimensions"></span><label><input id="guides" type="checkbox" checked> Safe area</label><label><input id="reference" type="checkbox" checked> Footage reference</label></div>
+<div class="canvas-space"><div id="stage"><video id="footage" muted playsinline preload="auto"></video><canvas id="canvas" width="1280" height="720"></canvas><div id="safeArea"></div><div id="selection"><b></b></div></div></div>
+<div class="transport"><button id="play" title="Play / pause" aria-label="Play / pause">&#9654;</button><button id="home" title="Go to start">&#9198;</button>
+<input id="scrub" type="range" min="0" max="5" step="0.001"><output id="time">0.00 / 5.00</output><label><input id="audio" type="checkbox"> Audio</label></div>
+<div id="status" role="status"></div></section>
+<aside class="inspector"><div class="section-title">TEXT &amp; MOTION</div><textarea id="text" dir="auto" spellcheck="false"></textarea><div id="properties"></div>
+<details open><summary>Keyframes</summary><div class="key-actions"><button id="addKey">Set keyframe</button><button id="deleteKey">Remove keyframe</button></div><select id="keys" size="3" aria-label="Keyframes"></select><div id="keyProperties"></div></details></aside>
+</main>
+<section class="timeline"><div class="timeline-toolbar"><strong>TIMELINE</strong><label><input id="snap" type="checkbox" checked> Snap</label><button id="marker">Add marker</button><button id="clearMarkers">Clear markers</button>
+<label>BPM<input id="bpm" type="number" value="120" min="20" max="300"></label><button id="beatGrid">Beat grid</button><label>Zoom<input id="zoom" type="range" min="1" max="8" step="0.25" value="1"></label><span id="selectedTime"></span></div>
+<div class="timeline-scroll"><div class="timeline-content" id="timelineContent"><div id="ruler"></div><div id="audioRow"><canvas id="audioWave" height="54"></canvas><div id="audioClip" hidden><b data-edge="in"></b><b data-edge="out"></b></div></div><div id="tracks"></div><div id="playhead"></div></div></div></section>
+<script src="lucide.js"></script><script src="engine.js"></script><script src="text_cues.js"></script><script src="editor_audio.js"></script><script src="editor.js"></script></body></html>

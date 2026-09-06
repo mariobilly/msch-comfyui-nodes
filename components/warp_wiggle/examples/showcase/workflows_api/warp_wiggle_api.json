@@ -1,0 +1,222 @@
+{
+  "1": {
+    "class_type": "VHS_LoadVideo",
+    "inputs": {
+      "video": "msch_kids.mp4",
+      "force_rate": 24,
+      "custom_width": 0,
+      "custom_height": 0,
+      "frame_load_cap": 72,
+      "skip_first_frames": 0,
+      "select_every_nth": 1,
+      "format": "None"
+    }
+  },
+  "2": {
+    "class_type": "VHS_LoadVideo",
+    "inputs": {
+      "video": "msch_robot.mp4",
+      "force_rate": 24,
+      "custom_width": 960,
+      "custom_height": 540,
+      "frame_load_cap": 72,
+      "skip_first_frames": 0,
+      "select_every_nth": 1,
+      "format": "None"
+    }
+  },
+  "11": {
+    "class_type": "VHS_LoadVideo",
+    "inputs": {
+      "video": "msch_clipB.mp4",
+      "force_rate": 0,
+      "custom_width": 0,
+      "custom_height": 0,
+      "frame_load_cap": 0,
+      "skip_first_frames": 0,
+      "select_every_nth": 1,
+      "format": "None"
+    }
+  },
+  "3": {
+    "class_type": "WarpWiggleTransition",
+    "inputs": {
+      "images_a": [
+        "1",
+        0
+      ],
+      "images_b": [
+        "2",
+        0
+      ],
+      "transition_frames": 22,
+      "warp_pattern": "blocks",
+      "warp_strength": 0.22,
+      "warp_frequency": 5.0,
+      "wiggle_amplitude": 0.06,
+      "wiggle_frequency": 7.0,
+      "wiggle_axis": "both",
+      "block_size": 64,
+      "noise_amount": 0.4,
+      "sweep_direction": "center_out",
+      "sweep_softness": 0.25,
+      "easing": "ease_in_out",
+      "edge_mode": "reflection",
+      "chromatic_aberration": 0.35,
+      "parallax": 0.5,
+      "seed": 11
+    }
+  },
+  "4": {
+    "class_type": "HUDOverlay",
+    "inputs": {
+      "color_scheme": "rgb_glitch",
+      "opacity": 0.9,
+      "crosshair_count": 5,
+      "bar_count": 10,
+      "corner_brackets": true,
+      "scanlines": true,
+      "glitch_text": true,
+      "text": "REC ● MSCH//WARP",
+      "jitter": 0.5,
+      "flicker": 0.25,
+      "line_width": 2,
+      "seed": 0,
+      "images": [
+        "3",
+        0
+      ]
+    }
+  },
+  "5": {
+    "class_type": "VHS_VideoCombine",
+    "inputs": {
+      "images": [
+        "4",
+        0
+      ],
+      "frame_rate": 24,
+      "loop_count": 0,
+      "filename_prefix": "msch_showcase/07_warp_wiggle/transition_blocks_hud",
+      "format": "video/h264-mp4",
+      "pix_fmt": "yuv420p",
+      "crf": 17,
+      "save_metadata": true,
+      "trim_to_audio": false,
+      "pingpong": false,
+      "save_output": true
+    }
+  },
+  "6": {
+    "class_type": "WarpWiggleTransition",
+    "inputs": {
+      "images_a": [
+        "1",
+        0
+      ],
+      "images_b": [
+        "2",
+        0
+      ],
+      "transition_frames": 24,
+      "warp_pattern": "slit_scan",
+      "warp_strength": 0.3,
+      "warp_frequency": 6.0,
+      "wiggle_amplitude": 0.05,
+      "wiggle_frequency": 9.0,
+      "wiggle_axis": "horizontal",
+      "block_size": 48,
+      "noise_amount": 0.3,
+      "sweep_direction": "left_to_right",
+      "sweep_softness": 0.2,
+      "easing": "ease_in_out",
+      "edge_mode": "reflection",
+      "chromatic_aberration": 0.5,
+      "parallax": -0.4,
+      "seed": 3
+    }
+  },
+  "7": {
+    "class_type": "VHS_VideoCombine",
+    "inputs": {
+      "images": [
+        "6",
+        0
+      ],
+      "frame_rate": 24,
+      "loop_count": 0,
+      "filename_prefix": "msch_showcase/07_warp_wiggle/transition_slitscan_clean",
+      "format": "video/h264-mp4",
+      "pix_fmt": "yuv420p",
+      "crf": 17,
+      "save_metadata": true,
+      "trim_to_audio": false,
+      "pingpong": false,
+      "save_output": true
+    }
+  },
+  "8": {
+    "class_type": "WarpWiggleStylize",
+    "inputs": {
+      "images": [
+        "11",
+        0
+      ],
+      "warp_pattern": "horizontal_bands",
+      "warp_strength": 0.06,
+      "warp_frequency": 5.0,
+      "wiggle_amplitude": 0.03,
+      "wiggle_frequency": 6.0,
+      "wiggle_axis": "both",
+      "block_size": 48,
+      "noise_amount": 0.08,
+      "motion_speed": 0.25,
+      "intensity_mode": "pulse",
+      "pulse_count": 4.0,
+      "pulse_depth": 0.8,
+      "chromatic_aberration": 0.12,
+      "edge_mode": "reflection",
+      "seed": 2
+    }
+  },
+  "9": {
+    "class_type": "HUDOverlay",
+    "inputs": {
+      "color_scheme": "rgb_glitch",
+      "opacity": 0.9,
+      "crosshair_count": 6,
+      "bar_count": 8,
+      "corner_brackets": true,
+      "scanlines": false,
+      "glitch_text": true,
+      "text": "STYLIZE ● ONE CLIP",
+      "jitter": 0.5,
+      "flicker": 0.25,
+      "line_width": 2,
+      "seed": 0,
+      "images": [
+        "8",
+        0
+      ]
+    }
+  },
+  "10": {
+    "class_type": "VHS_VideoCombine",
+    "inputs": {
+      "images": [
+        "9",
+        0
+      ],
+      "frame_rate": 24,
+      "loop_count": 0,
+      "filename_prefix": "msch_showcase/07_warp_wiggle/stylize_single_clip_hud",
+      "format": "video/h264-mp4",
+      "pix_fmt": "yuv420p",
+      "crf": 17,
+      "save_metadata": true,
+      "trim_to_audio": false,
+      "pingpong": false,
+      "save_output": true
+    }
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "1": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "demo.png"
+    }
+  },
+  "2": {
+    "class_type": "SynkitMetablob",
+    "inputs": {
+      "frames": 24,
+      "fps": 12,
+      "cell_size": 14,
+      "drive": "dark",
+      "threshold": 0.35,
+      "dot_size": 1.0,
+      "merge": 0.5,
+      "contrast": 1.5,
+      "softness": 0.5,
+      "color": "#C6FF00",
+      "opacity": 1.0,
+      "background": "original",
+      "grid": "square",
+      "animate": "breathe+drift",
+      "anim_speed": 1.0,
+      "anim_amount": 0.35,
+      "seed": 0,
+      "image": [
+        "1",
+        0
+      ]
+    }
+  },
+  "3": {
+    "class_type": "SynkitTracker",
+    "inputs": {
+      "frames": 24,
+      "fps": 12,
+      "count": 12,
+      "detector": "corners",
+      "min_distance": 60,
+      "box_min": 40,
+      "box_max": 140,
+      "bracket_length": 0.3,
+      "line_width": 1,
+      "color_mode": "palette",
+      "color": "#C6FF00",
+      "palette": "neon",
+      "show_labels": true,
+      "label_style": "index+coords",
+      "font_scale": 1.0,
+      "crosshairs": 0.4,
+      "connections": 8,
+      "connect_mode": "random",
+      "opacity": 1.0,
+      "background": "original",
+      "animate": "hop+jitter",
+      "hop_every": 12,
+      "jitter": 2.0,
+      "flicker": 0.1,
+      "rewire_every": 6,
+      "seed": 0,
+      "image": [
+        "2",
+        1
+      ]
+    }
+  },
+  "4": {
+    "class_type": "SaveVideo",
+    "inputs": {
+      "filename_prefix": "video/msch-demo",
+      "format": "auto",
+      "video": [
+        "3",
+        0
+      ]
+    }
+  }
+}
