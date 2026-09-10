@@ -32,7 +32,8 @@ WhisperX is unavailable, lines are distributed evenly across the song so nothing
 hard-fails.
 
 WhisperX is called via its **CLI** (it lives in a separate Python env on this
-machine). Auto-detected via PATH / a known path; override with `whisperx_exe`.
+machine). Auto-detected via the host PATH / a known installation path. The legacy
+`whisperx_exe` value is ignored; workflows cannot select an executable.
 
 ## Install
 ```

@@ -16,15 +16,11 @@ from .analysis_tools import analyze_beats, detect_focus, focus_preview
 from .engine import open_photo
 from .nodes import MarioSlideshow, TensorPhotos, file_fingerprint, image_files, image_tensor
 from .planning import PRESETS, build_plan, validate_focus, validate_plan
+from .._paths import input_path
 
 
 def resolve_file(value):
-    path = Path(value.strip()).expanduser()
-    if not path.is_absolute():
-        path = Path(folder_paths.get_input_directory()) / path
-    if not path.is_file():
-        raise ValueError(f"File does not exist: {path}")
-    return path
+    return input_path(value)
 
 
 def preview_result(image, result):

@@ -36,3 +36,14 @@ The unified loader detects the known old folders before importing a component. I
 This compatibility behavior does not uninstall, rename or delete anything automatically. It is a transition aid; the intended final installation is one `msch-comfyui-nodes` folder.
 
 Old Registry records and cached Manager entries can remain visible during the transition. Use the unified package for new installs. Historical repositories remain available for existing links and rollback.
+# Security update: file and executable inputs
+
+PuppetFace, Typort, Slideshow and A2V media paths now use paths relative to
+ComfyUI/input, such as `clips/demo.mp4`. Move external media into that directory
+and replace absolute paths in existing workflows. Slideshow custom font files
+also use input-relative paths. Absolute paths, `..` and symlink escapes are
+rejected. PuppetFace save prefixes are relative to ComfyUI/output.
+
+The legacy Lyric Sync `whisperx_exe` widget is ignored. Install WhisperX on the
+host PATH or in the known per-user Python 3.13 location. See [SECURITY.md](SECURITY.md)
+for the checkpoint-loading and path boundaries.

@@ -73,7 +73,7 @@ again downstream for both the low-res preview and the final upscale — no
 separate image-resplitting step needed.
 
 1. **MschA2V_BeatPromptSequencer** — set `audio_path` (a file under
-   ComfyUI's `input/` directory, or an absolute path), click **Open
+   ComfyUI's `input/` directory; absolute paths and `..` are rejected), click **Open
    Sequencer**, author your blocks, click **Done**. Outputs `SCHEDULE`,
    `AUDIO`, `BPM`, `total_frames`.
 2. **MschA2V_ShotPlanner** — compiles the `SCHEDULE` into frame-accurate

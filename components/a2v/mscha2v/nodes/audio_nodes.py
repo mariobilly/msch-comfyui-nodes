@@ -12,8 +12,8 @@ from ._common import load_audio_dict
 
 
 class MschA2V_LoadAudioPath:
-    """Loads an arbitrary audio file path (not restricted to ComfyUI's input/
-    directory) into an AUDIO output, with optional gain trim.
+    """Loads an audio file relative to ComfyUI's input directory into an AUDIO
+    output, with optional gain trim.
     """
 
     CATEGORY = "MschA2V"

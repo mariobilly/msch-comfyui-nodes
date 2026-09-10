@@ -6,6 +6,7 @@ import folder_paths
 from server import PromptServer
 
 from .audio_analysis import analyze
+from .._paths import input_path
 
 _analysis_slot = asyncio.Semaphore(1)
 
@@ -13,11 +14,7 @@ _analysis_slot = asyncio.Semaphore(1)
 def input_audio(name):
     if not isinstance(name, str) or not name or len(name) > 2000:
         raise ValueError("Upload an audio file in the studio first.")
-    base = Path(folder_paths.get_input_directory()).resolve()
-    path = (base / name).resolve()
-    if not path.is_relative_to(base) or not path.is_file():
-        raise ValueError("Audio must be an existing file inside ComfyUI/input.")
-    return path
+    return input_path(name)
 
 
 @PromptServer.instance.routes.post("/mariotyport/analyze-audio")

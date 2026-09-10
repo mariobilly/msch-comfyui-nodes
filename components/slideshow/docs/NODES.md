@@ -35,8 +35,8 @@ Render a complete photo promo from an uploaded photo collection, folder or IMAGE
 | `accent` | STRING | #DFFF40 |  |  |
 | `graphics` | BOOLEAN | True |  |  |
 | `headlines` | STRING |  |  | One headline per image; blank lines leave that shot untitled. Multiline text is supported. |
-| `font_path` | STRING |  |  | Optional .ttf or .otf file. |
-| `audio_file` | STRING |  |  | Optional local soundtrack; alternatively connect AUDIO. |
+| `font_path` | STRING |  |  | Optional .ttf or .otf file relative to ComfyUI/input. |
+| `audio_file` | STRING |  |  | Soundtrack relative to ComfyUI/input; alternatively connect AUDIO. |
 | `quality` | COMBO | High | High, Preview, Master |  |
 | `shuffle` | BOOLEAN | False |  |  |
 | `seed` | INT | 0 | 0 to 2147483647 |  |
@@ -80,7 +80,7 @@ Load or upload an ordered photo collection while preserving each image's origina
 
 | Input | Type | Default | Range / choices | Details |
 |---|---|---|---|---|
-| `directory` | STRING |  |  | Absolute folder path, or a path inside ComfyUI/input. |
+| `directory` | STRING |  |  | Folder relative to ComfyUI/input. Absolute paths, parent traversal and symlink escapes are rejected. |
 | `max_images` | INT | 100 | 1 to 200 |  |
 | `order` | COMBO | Natural | Natural, Newest first |  |
 
@@ -245,8 +245,8 @@ Render an existing MARIO_PLAN using the source photos, optional framing guidance
 | `grain` | FLOAT | 0.08 | 0 to 1; step 0.01 |  |
 | `accent` | STRING | #DFFF40 |  |  |
 | `graphics` | BOOLEAN | True |  |  |
-| `font_path` | STRING |  |  | Optional .ttf or .otf file. |
-| `audio_file` | STRING |  |  | Optional local soundtrack; alternatively connect AUDIO. |
+| `font_path` | STRING |  |  | Optional .ttf or .otf file relative to ComfyUI/input. |
+| `audio_file` | STRING |  |  | Soundtrack relative to ComfyUI/input; alternatively connect AUDIO. |
 | `quality` | COMBO | High | High, Preview, Master |  |
 | `seed` | INT | 0 | 0 to 2147483647 |  |
 | `filename_prefix` | STRING | marioslideshow |  |  |

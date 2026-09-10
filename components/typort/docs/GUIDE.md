@@ -80,7 +80,10 @@ Upload a video in the studio, then enable Footage reference. A browser-compatibl
 
 MP4 composite includes the footage and re-encodes its source audio as AAC unless a standalone soundtrack replaces it. Without footage it uses the chosen solid background. Transparent MOV and PNG sequence export **only the typography image**, even if footage is visible as an editing reference; a standalone soundtrack is supported as described above. Their player preview uses a checkerboard; that checkerboard is not baked into the alpha files.
 
-An absolute `video_file` path can render without upload, but it cannot be previewed directly by the browser. Upload it in the studio for interactive preview. Unsupported browser codecs may still decode for export through FFmpeg/PyAV.
+`video_file` must be relative to ComfyUI/input, for example `clips/demo.mp4`.
+Absolute paths, parent traversal and symlink escapes are rejected. Upload it in
+the studio for interactive preview. Unsupported browser codecs may still decode
+for export through FFmpeg/PyAV.
 
 ## Export
 

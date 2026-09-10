@@ -20,6 +20,7 @@ ON the face instead of guessing.
 import numpy as np
 import torch
 from PIL import Image, ImageDraw
+from .._paths import input_path, output_path
 
 # ONNX 106-pt tracker (SCRFD + 2d106det). Robust, zero protobuf risk, CPU.
 # Preferred over the cv2-Haar oval fallback. Loads lazily; safe if unavailable.
@@ -338,12 +339,9 @@ class PuppetFaceOverlay:
 # Self-contained video I/O (cv2) so the video workflow needs no other packs
 # ----------------------------------------------------------------------------
 def _comfy_dir(kind):
-    try:
-        import folder_paths
-        return (folder_paths.get_input_directory() if kind == "input"
-                else folder_paths.get_output_directory())
-    except Exception:
-        return "."
+    import folder_paths
+    return (folder_paths.get_input_directory() if kind == "input"
+            else folder_paths.get_output_directory())
 
 
 def _even(x):
@@ -353,7 +351,7 @@ def _even(x):
 
 class PuppetFaceLoadVideo:
     """Read an mp4/mov into an IMAGE batch (+ fps). Path is relative to the
-    ComfyUI input/ folder unless absolute."""
+    ComfyUI input/ folder; absolute and parent-traversing paths are rejected."""
 
     VIDEO_EXTS = (".mp4", ".mov", ".webm", ".mkv", ".avi", ".gif", ".m4v")
 
@@ -379,7 +377,7 @@ class PuppetFaceLoadVideo:
             },
             "optional": {
                 "path_override": ("STRING", {"default": "",
-                    "tooltip": "Full path to ANY video; if set, overrides the dropdown."}),
+                    "tooltip": "Video path relative to ComfyUI/input; overrides the dropdown."}),
             },
         }
 
@@ -388,7 +386,7 @@ class PuppetFaceLoadVideo:
     def IS_CHANGED(cls, video, frame_load_cap, select_every_nth, max_side, path_override=""):
         import os
         src = (path_override or "").strip().strip('"').strip("'") or video
-        p = src if os.path.isabs(src) else os.path.join(_comfy_dir("input"), src)
+        p = input_path(src)
         try:
             return os.path.getmtime(p)
         except Exception:
@@ -403,9 +401,7 @@ class PuppetFaceLoadVideo:
         import os, cv2
         # path_override (if given) wins; tolerate "Copy as path" quotes + whitespace
         src = (path_override or "").strip().strip('"').strip("'").strip() or video
-        path = src if os.path.isabs(src) else os.path.join(_comfy_dir("input"), src)
-        if not os.path.exists(path):
-            raise FileNotFoundError(f"[PuppetFace] video not found: {path}")
+        path = str(input_path(src))
         cap = cv2.VideoCapture(path)
         fps = cap.get(cv2.CAP_PROP_FPS) or 24.0
         frames, i = [], 0
@@ -455,16 +451,18 @@ class PuppetFaceSaveVideo:
 
     def save(self, images, fps, filename_prefix):
         import os, cv2
-        out_dir = _comfy_dir("output")
-        os.makedirs(out_dir, exist_ok=True)
+        # Validate the prefix itself, as well as each generated filename.
+        output_path(filename_prefix)
         # unique filename
         n = 0
         while True:
             name = f"{filename_prefix}_{n:05d}.mp4"
-            path = os.path.join(out_dir, name)
+            path = str(output_path(name))
             if not os.path.exists(path):
                 break
             n += 1
+
+        os.makedirs(os.path.dirname(path), exist_ok=True)
 
         arr = (images.clamp(0, 1).cpu().numpy() * 255.0).astype(np.uint8)  # [B,H,W,3] RGB
         h, w = arr.shape[1:3]

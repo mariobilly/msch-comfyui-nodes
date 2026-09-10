@@ -29,7 +29,7 @@ class LyricSyncAlign:
                 ),
                 "whisperx_exe": ("STRING", {
                     "default": "",
-                    "tooltip": "Optional path to whisperx.exe (auto-detected if blank).",
+                    "tooltip": "Deprecated and ignored. WhisperX is located using the host PATH or known installation.",
                 }),
             },
         }

@@ -16,6 +16,7 @@ from comfy.utils import ProgressBar
 
 from .project import FONTS, FORMATS, PRESETS, default_project, validate_project
 from .render import render
+from .._paths import input_path, output_path
 
 
 class MarioTyport:
@@ -37,7 +38,7 @@ class MarioTyport:
             "fps": ("INT", {"default": 30, "min": 1, "max": 60}),
             "format": (FORMATS,),
             "motion_blur": (["Off", "3 samples", "5 samples"], {"default": "3 samples"}),
-            "video_file": ("STRING", {"default": ""}),
+            "video_file": ("STRING", {"default": "", "tooltip": "Video path relative to ComfyUI/input."}),
             "project_json": ("STRING", {"default": "", "multiline": True}),
             "filename_prefix": ("STRING", {"default": "mariotyport"}),
         }}
@@ -48,19 +49,12 @@ class MarioTyport:
         video = None
         audio = None
         if project["audio"]["file"]:
-            base = Path(folder_paths.get_input_directory()).resolve()
-            audio = (base / project["audio"]["file"]).resolve()
-            if not audio.is_relative_to(base) or not audio.is_file():
-                raise ValueError("Upload the project's soundtrack into ComfyUI/input again.")
+            audio = input_path(project["audio"]["file"])
         if video_file.strip():
-            video = Path(video_file.strip().strip('"')).expanduser()
-            if not video.is_absolute():
-                video = Path(folder_paths.get_input_directory()) / video
-            if not video.is_file():
-                raise ValueError(f"Video file not found: {video}")
+            video = input_path(video_file)
         prefix = re.sub(r"[^a-zA-Z0-9_-]", "_", filename_prefix)[:60] or "mariotyport"
         name = prefix + "_" + uuid.uuid4().hex[:12]
-        output = Path(folder_paths.get_output_directory()) / "mariotyport" / name
+        output = output_path(f"mariotyport/{name}")
         output.parent.mkdir(parents=True, exist_ok=True)
         cancel = threading.Event()
         progress = ProgressBar(max(1, round(project["duration"] * fps)))

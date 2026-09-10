@@ -22,6 +22,7 @@ from comfy_api.input_impl import VideoFromFile
 
 from .engine import PromoRenderer, Settings, VideoWriter, open_photo
 from .planning import build_plan, validate_focus
+from .._paths import input_path, output_path
 
 
 IMAGE_EXTENSIONS = {".png", ".jpg", ".jpeg", ".webp", ".bmp", ".tif", ".tiff"}
@@ -34,14 +35,13 @@ def natural_key(path):
 def image_files(directory, max_images=200, order="Natural"):
     if not directory.strip():
         raise ValueError("Upload images, enter an image folder, or connect an IMAGE batch.")
-    path = Path(directory.strip()).expanduser()
-    if not path.is_absolute():
-        path = Path(folder_paths.get_input_directory()) / path
-    if not path.is_dir():
-        raise ValueError(f"Image folder does not exist: {path}")
+    path = input_path(directory, kind="directory")
     if order not in ("Natural", "Newest first"):
         raise ValueError("Unknown image order.")
     files = [p for p in path.iterdir() if p.is_file() and p.suffix.lower() in IMAGE_EXTENSIONS]
+    # Validate individual entries too: an in-bounds directory can contain links.
+    base = Path(folder_paths.get_input_directory()).resolve()
+    files = [input_path(p.relative_to(base).as_posix()) for p in files]
     files.sort(key=natural_key if order == "Natural" else lambda p: -p.stat().st_mtime_ns)
     files = files[:max(1, min(200, int(max_images)))]
     if not files:
@@ -96,7 +96,7 @@ class MarioSlideshowLoadImages:
     @classmethod
     def INPUT_TYPES(cls):
         return {"required": {
-            "directory": ("STRING", {"default": "", "tooltip": "Absolute folder path, or a path inside ComfyUI/input."}),
+            "directory": ("STRING", {"default": "", "tooltip": "Folder relative to ComfyUI/input. Absolute paths and '..' are rejected."}),
             "max_images": ("INT", {"default": 100, "min": 1, "max": 200}),
             "order": (["Natural", "Newest first"],),
         }}
@@ -148,8 +148,8 @@ class MarioSlideshow:
             "accent": ("STRING", {"default": "#DFFF40"}),
             "graphics": ("BOOLEAN", {"default": True}),
             "headlines": ("STRING", {"default": "", "multiline": True, "tooltip": "One headline per image; blank lines leave that shot untitled."}),
-            "font_path": ("STRING", {"default": "", "tooltip": "Optional .ttf or .otf file."}),
-            "audio_file": ("STRING", {"default": "", "tooltip": "Optional local soundtrack; alternatively connect AUDIO."}),
+            "font_path": ("STRING", {"default": "", "tooltip": "Optional .ttf or .otf file relative to ComfyUI/input."}),
+            "audio_file": ("STRING", {"default": "", "tooltip": "Soundtrack relative to ComfyUI/input; alternatively connect AUDIO."}),
             "quality": (["High", "Preview", "Master"],),
             "shuffle": ("BOOLEAN", {"default": False}),
             "seed": ("INT", {"default": 0, "min": 0, "max": 2147483647}),
@@ -169,10 +169,7 @@ class MarioSlideshow:
         if image_folder.strip():
             paths.extend(image_files(image_folder))
         if audio_file.strip():
-            path = Path(audio_file.strip()).expanduser()
-            if not path.is_absolute():
-                path = Path(folder_paths.get_input_directory()) / path
-            paths.append(path)
+            paths.append(input_path(audio_file))
         return file_fingerprint(paths)
 
     def render(self, image_folder, width, height, fps, timing, bpm, beats_per_image,
@@ -194,7 +191,7 @@ class MarioSlideshow:
                             pacing=pacing, layout=layout, framing=framing, transition=transition,
                             transition_seconds=transition_seconds, intensity=intensity,
                             motion_blur=blur_samples, grain=grain, accent=accent,
-                            graphics=graphics, font_path=font_path.strip(), seed=seed,
+                            graphics=graphics, font_path=str(input_path(font_path)) if font_path.strip() else "", seed=seed,
                             show_counter=show_counter, show_progress=show_progress, show_headlines=show_headlines)
         source = photos["paths"] if photos is not None else TensorPhotos(images) if images is not None else image_files(image_folder)
         labels = headlines.splitlines()
@@ -219,7 +216,7 @@ class MarioSlideshow:
                 if transition != "Mixed":
                     shot["transition"] = transition.lower()
         renderer = PromoRenderer(source, settings, labels, plan=plan, focus=focus, headline_layers=headline_layers)
-        output_dir = Path(folder_paths.get_output_directory()) / "marioslideshow"
+        output_dir = output_path("marioslideshow")
         output_dir.mkdir(parents=True, exist_ok=True)
         prefix = re.sub(r"[^A-Za-z0-9_-]+", "_", filename_prefix).strip("_")[:64] or "marioslideshow"
         name = f"{prefix}_{uuid.uuid4().hex[:12]}"
@@ -232,11 +229,7 @@ class MarioSlideshow:
             with tempfile.TemporaryDirectory(prefix="marioslideshow_", dir=folder_paths.get_temp_directory()) as temp:
                 soundtrack = None
                 if audio_file.strip():
-                    soundtrack = Path(audio_file.strip()).expanduser()
-                    if not soundtrack.is_absolute():
-                        soundtrack = Path(folder_paths.get_input_directory()) / soundtrack
-                    if not soundtrack.is_file():
-                        raise ValueError(f"Soundtrack not found: {soundtrack}")
+                    soundtrack = input_path(audio_file)
                 elif audio is not None:
                     soundtrack = Path(temp) / "audio.wav"
                     self._write_audio(audio, soundtrack, renderer.frame_count / fps)

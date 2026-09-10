@@ -26,7 +26,7 @@ Combine a ComfyUI AUDIO value with user-supplied lyric lines. The optional Whisp
 | `translation` | STRING |  |  | Optional parallel translation, one line per lyric line. Multiline text is supported. |
 | `language` | STRING | auto |  |  |
 | `whisper_model` | COMBO | medium | tiny, base, small, medium, large-v2, large-v3 |  |
-| `whisperx_exe` | STRING |  |  | Optional path to whisperx.exe (auto-detected if blank). |
+| `whisperx_exe` | STRING |  |  | Deprecated and ignored. WhisperX is located using the host PATH or known installation. |
 
 ### Outputs
 

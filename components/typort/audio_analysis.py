@@ -1,5 +1,7 @@
 """Local audio decoding, rhythmic features and optional offline Demucs stems."""
 import hashlib
+import io
+from fractions import Fraction
 from pathlib import Path
 
 import av
@@ -68,6 +70,27 @@ def resolve_separation_device(device):
     return "cuda" if available else "cpu"
 
 
+def load_demucs_checkpoint(checkpoint):
+    """Load only the pinned artifact, using PyTorch's restricted unpickler."""
+    import torch
+    from demucs.htdemucs import HTDemucs
+    from numpy.core.multiarray import scalar
+
+    # Hash and deserialize the same snapshot; do not reopen a replaceable file.
+    data = Path(checkpoint).read_bytes()
+    if hashlib.sha256(data).hexdigest() != "8726e21a993978c7ba086d3872e7608d7d5bfca646ca4aca459ffda844faa8b4":
+        raise ValueError("The Demucs checkpoint checksum does not match the official model.")
+    # These are the fixed metadata types in the official HTDemucs artifact.
+    # Never discover/allowlist globals from a supplied file or retry unsafe loads.
+    allowed = [HTDemucs, Fraction, np.dtype,
+               (scalar, "numpy.core.multiarray.scalar"), type(np.dtype(np.float64))]
+    with torch.serialization.safe_globals(allowed):
+        package = torch.load(io.BytesIO(data), map_location="cpu", weights_only=True)
+    if not isinstance(package, dict) or package.get("klass") is not HTDemucs:
+        raise ValueError("Expected the official HTDemucs model package.")
+    return package
+
+
 def separate(path, model_directory, device="cpu"):
     try:
         import torch
@@ -80,10 +103,7 @@ def separate(path, model_directory, device="cpu"):
     checkpoint = directory / "955717e8-8726e21a.th"
     if not checkpoint.is_file():
         raise ValueError("The offline Demucs model is missing. Run tests/setup_stems.py explicitly before using instrument separation.")
-    # Demucs stores architecture metadata in its pickle. Only this verified official artifact is accepted.
-    if fingerprint(checkpoint) != "8726e21a993978c7ba086d3872e7608d7d5bfca646ca4aca459ffda844faa8b4":
-        raise ValueError("The Demucs checkpoint checksum does not match the official model.")
-    model = load_model(torch.load(checkpoint, map_location="cpu", weights_only=False), strict=True)
+    model = load_model(load_demucs_checkpoint(checkpoint), strict=True)
     model.eval()
     audio = torch.from_numpy(decode(path, model.samplerate, stereo=True))
     reference = audio.mean(0)

@@ -66,7 +66,7 @@ Decode a selected video into RGB IMAGE frames using OpenCV. Limit the number of 
 
 | Input | Type | Default | Range / choices | Details |
 |---|---|---|---|---|
-| `path_override` | STRING |  |  | Full path to ANY video; if set, overrides the dropdown. |
+| `path_override` | STRING |  |  | Video path relative to ComfyUI/input; overrides the dropdown. Absolute paths, parent traversal and symlink escapes are rejected. |
 
 ### Outputs
 

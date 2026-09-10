@@ -28,7 +28,7 @@ import wave
 import numpy as np
 
 
-# Conventional per-user Python 3.13 location on Windows, after explicit path/PATH.
+# Host-controlled fallback after a lookup of the fixed command name on PATH.
 _KNOWN_WHISPERX = os.path.join(
     os.environ.get("LOCALAPPDATA", os.path.expanduser("~/AppData/Local")),
     "Programs", "Python", "Python313", "Scripts", "whisperx.exe",
@@ -38,10 +38,7 @@ _WORD_RE = re.compile(r"[^\W\d_]+|\d+", re.UNICODE)
 
 
 def resolve_whisperx(explicit=""):
-    """Return a usable path to the whisperx executable, or None."""
-    explicit = (explicit or "").strip().strip('"')
-    if explicit and os.path.isfile(explicit):
-        return explicit
+    """Find the fixed WhisperX command; legacy workflow overrides are ignored."""
     found = shutil.which("whisperx")
     if found:
         return found
@@ -79,7 +76,8 @@ def tensor_to_wav(audio, path):
 
 def run_whisperx(wav_path, out_dir, language="auto", model="medium", exe=None):
     """Run the WhisperX CLI and return the parsed JSON dict (or None on failure)."""
-    exe = exe or resolve_whisperx()
+    # Never let a workflow choose the executable, including legacy `exe` values.
+    exe = resolve_whisperx()
     if not exe:
         print("[LyricSync] whisperx executable not found; falling back to even timing.")
         return None
